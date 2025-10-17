@@ -96,7 +96,7 @@ const BookingFlowSection = () => {
                       </div>
 
                       {/* Step Number Badge */}
-                      <div className={`flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${step.color} text-white font-bold text-lg sm:text-2xl shadow-lg shadow-slate-900/20 group-hover:scale-110 group-hover:shadow-xl transition-all duration-300`}>
+                      <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br ${step.color} text-white font-bold text-base sm:text-xl shadow-lg shadow-slate-900/20 group-hover:scale-110 group-hover:shadow-xl transition-all duration-300`}>
                         {step.step}
                       </div>
                     </div>
