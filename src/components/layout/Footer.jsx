@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
-import { Car, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import {
+  Car,
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,10 +18,15 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex justify-start gap-2 mb-4 items-center">
-              <img src="/sky-logo.png" alt="Sky Logistics" className="w-20 sm:w-24 md:w-32 h-auto filter invert " />
+              <img
+                src="/sky-logo.png"
+                alt="Sky Logistics"
+                className="w-20 sm:w-24 md:w-32 h-auto filter invert "
+              />
             </div>
             <p className="text-[#7A7F84] text-md mb-4">
-              Premium corporate transportation solutions for modern businesses. Reliable, professional, and luxurious.
+              Premium corporate transportation solutions for modern businesses.
+              Reliable, professional, and luxurious.
             </p>
             <div className="flex gap-3">
               {[
@@ -34,7 +48,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-blue-600 mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-[#EE9236] mb-4">Quick Links</h3>
             <ul className="space-y-2 text-md font-semibold">
               {[
                 { name: "Home", to: "/" },
@@ -56,7 +70,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-blue-600 mb-4">Services</h3>
+            <h3 className="font-semibold text-[#EE9236] mb-4">Services</h3>
             <ul className="space-y-2 text-md font-semibold">
               {[
                 { name: "Corporate Booking", to: "/corporate-booking" },
@@ -77,26 +91,42 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-blue-600 mb-4">Contact Us</h3>
+            <h3 className="font-semibold text-[#EE9236] mb-4">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2 hover:text-blue-600 cursor-pointer hover:scale-110 transition-transform">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-600 " />
-                <span>Plot No. 41-48, Flat No.502, Telecom Nagar, Gachibowli, Hyderabad, Telangana – 500032</span>
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#EE9236] " />
+                <span>
+                  Plot No. 41-48, Flat No.502, Telecom Nagar, Gachibowli,
+                  Hyderabad, Telangana – 500032
+                </span>
               </li>
               <li className="flex items-center gap-2 hover:scale-110 transition-transform">
-                <Phone className="w-4 h-4 flex-shrink-0 text-blue-600 " />
-                <a href="tel:+919121261234" className="hover:text-blue-600 hover:underline transition-colors">+91 9121261234</a>
+                <Phone className="w-4 h-4 flex-shrink-0 text-[#EE9236] " />
+                <a
+                  href="tel:+919121261234"
+                  className="hover:text-blue-600 hover:underline transition-colors"
+                >
+                  +91 9121261234
+                </a>
               </li>
               <li className="flex items-center gap-2 hover:scale-110 transition-transform">
-                <Mail className="w-4 h-4 flex-shrink-0 text-blue-600" />
-                <a href="mailto:booking@skylogisticshub.com" className="hover:text-blue-600 hover:underline transition-colors">booking@skylogisticshub.com</a>
+                <Mail className="w-4 h-4 flex-shrink-0 text-[#EE9236]" />
+                <a
+                  href="mailto:booking@skylogisticshub.com"
+                  className="hover:text-blue-600 hover:underline transition-colors"
+                >
+                  booking@skylogisticshub.com
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-[#7A7F84]/30 mt-8 pt-6 text-center text-sm text-[#7A7F84]/80">
-          <p>&copy; {new Date().getFullYear()} Sky Logistics. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Sky Logistics. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>
