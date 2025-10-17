@@ -44,7 +44,7 @@ const FleetCard = ({ vehicle, isLoading = false, index = 0 }) => {
 
         {/* Category Badge */}
         <motion.div
-          className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium"
+          className="absolute top-4 left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-md"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: staggerDelay + 0.2 }}
