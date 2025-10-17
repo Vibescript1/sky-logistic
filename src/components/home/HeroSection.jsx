@@ -5,12 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { PageLoader } from "@/components/ui/page-loader";
 import { Skeleton } from "@/components/ui/skeleton";
-const heroVideo = "https://res.cloudinary.com/dqvkcq4e0/video/upload/v1760681548/3063475-uhd_3840_2160_30fps_1_1_ke5lcx.mp4";
+const heroVideo =
+  "https://res.cloudinary.com/dqvkcq4e0/video/upload/v1760681548/3063475-uhd_3840_2160_30fps_1_1_ke5lcx.mp4";
 // import carDriving from "../../assets/car_driving_video.mp4";
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    const firstLoad = sessionStorage.getItem("hasLoaded");
+    return !firstLoad;
+  });
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [contentLoaded, setContentLoaded] = useState(false);
 
@@ -29,6 +33,7 @@ const HeroSection = () => {
     const completeTimer = setTimeout(() => {
       if (videoLoaded) {
         setIsLoading(false);
+        sessionStorage.setItem("hasLoaded", "true"); // ✅ prevent future loads
       }
     }, 1200);
 
@@ -43,9 +48,10 @@ const HeroSection = () => {
     setVideoLoaded(true);
     if (contentLoaded) {
       setTimeout(() => setIsLoading(false), 400);
+      sessionStorage.setItem("hasLoaded", "true");
     }
   };
-
+  console.log("HeroSection render: isLoading =", isLoading);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
       {/* Background Video with Parallax Effect */}
@@ -61,16 +67,16 @@ const HeroSection = () => {
         <video
           ref={(el) => {
             if (el) {
-              el.addEventListener('loadeddata', () => {
+              el.addEventListener("loadeddata", () => {
                 // Ensure smooth playback from start
                 el.playbackRate = 1;
                 handleVideoLoad();
               });
-              
-              el.addEventListener('timeupdate', () => {
+
+              el.addEventListener("timeupdate", () => {
                 // Keep video playing smoothly
                 if (el.currentTime > 0 && el.currentTime < 0.1) {
-                  el.style.opacity = '1';
+                  el.style.opacity = "1";
                 }
               });
             }
@@ -83,9 +89,9 @@ const HeroSection = () => {
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             opacity: videoLoaded ? 1 : 0,
-            transition: 'opacity 0.8s ease-in-out',
-            objectFit: 'cover',
-            objectPosition: 'center',
+            transition: "opacity 0.8s ease-in-out",
+            objectFit: "cover",
+            objectPosition: "center",
           }}
         >
           <source src={heroVideo} type="video/mp4" />
@@ -174,52 +180,52 @@ const HeroSection = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="space-y-6"
               >
-            <motion.h1
-              className="font-display font-bold text-4xl sm:text-5xl md:text-7xl text-white leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Corporate Cab Solutions for{" "}
-              <span className="text-[#F09136]">Modern Businesses</span>{" "}
-              {/* text-accent, bg-gradient-to-r from-[#F09136] to-[#FAD889] inline-block text-transparent bg-clip-text */}
-            </motion.h1>
-
-            <motion.p
-              className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              Premium fleet, professional drivers, seamless booking experience.
-              Elevate your corporate transportation.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 pt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <Link to="/corporate-booking">
-                <Button
-                  size="lg"
-                  className="bg-white text-primary hover:bg-white/90 p-6 glow-effect group"
+                <motion.h1
+                  className="font-display font-bold text-4xl sm:text-5xl md:text-7xl text-white leading-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  Book for Company
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/individual-booking">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="bg-white/20 text-white border-white/30 hover:bg-white/10 backdrop-blur-md mb-4 sm:mb-0"
+                  Corporate Cab Solutions for{" "}
+                  <span className="text-[#F09136]">Modern Businesses</span>{" "}
+                  {/* text-accent, bg-gradient-to-r from-[#F09136] to-[#FAD889] inline-block text-transparent bg-clip-text */}
+                </motion.h1>
+
+                <motion.p
+                  className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  Book as Individual
-                </Button>
-              </Link>
-            </motion.div>
+                  Premium fleet, professional drivers, seamless booking
+                  experience. Elevate your corporate transportation.
+                </motion.p>
+
+                <motion.div
+                  className="flex flex-col sm:flex-row gap-4 pt-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                >
+                  <Link to="/corporate-booking">
+                    <Button
+                      size="lg"
+                      className="bg-white text-primary hover:bg-white/90 p-6 glow-effect group"
+                    >
+                      Book for Company
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <Link to="/individual-booking">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="bg-white/20 text-white border-white/30 hover:bg-white/10 backdrop-blur-md mb-4 sm:mb-0"
+                    >
+                      Book as Individual
+                    </Button>
+                  </Link>
+                </motion.div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -233,13 +239,22 @@ const HeroSection = () => {
       >
         <ChevronDown className="w-8 h-8 text-white opacity-70" />
       </motion.div>
-      
+
       {/* Page Loader */}
-      <PageLoader 
-        isLoading={isLoading} 
+      {/* <PageLoader
+        isLoading={isLoading}
         variant="car"
         message="Preparing your journey..."
-      />
+      /> */}
+      {isLoading && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
+          <img
+            src="https://icons8.com/preloaders/preloaders/487/Speedometer-128.gif"
+            alt="Loading..."
+            className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain"
+          />
+        </div>
+      )}
     </section>
   );
 };
