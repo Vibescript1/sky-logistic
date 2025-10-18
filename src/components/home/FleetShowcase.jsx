@@ -180,9 +180,9 @@ const FleetShowcase = () => {
                   }
                   asChild
                 >
-                  <Link to={`/fleet/${vehicle.id}`}>
+                  {/* <Link to={`/fleet/${vehicle.id}`}>
                     <span>Book Now</span>
-                  </Link>
+                  </Link> */}
                 </Button>
               </div>
 

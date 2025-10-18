@@ -66,7 +66,7 @@ const VehicleDetails = () => {
                 <img
                   src={vehicle?.image || sedanImage}
                   alt={vehicle.name}
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[400x] object-cover" /* h-[500x] */
                 />
                 <div className="absolute top-6 left-6 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium">
                   {vehicle.category.toUpperCase()}
@@ -119,7 +119,7 @@ const VehicleDetails = () => {
               </div>
 
               {/* Price & Booking */}
-              <div className="glass-card-light rounded-2xl p-6">
+              {/* <div className="glass-card-light rounded-2xl p-6">
                 <Button
                   onClick={() =>
                     navigate(`/individual-booking?vehicle=${vehicle.id}`)
@@ -129,7 +129,7 @@ const VehicleDetails = () => {
                 >
                   Book Now
                 </Button>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </div>
