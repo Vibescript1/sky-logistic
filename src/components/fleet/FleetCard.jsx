@@ -39,7 +39,7 @@ const FleetCard = ({ vehicle, isLoading = false, index = 0 }) => {
           animate={{ scale: isHovered ? 1.1 : 1 }}
           transition={{ duration: 0.6 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
         {/* Category Badge */}
         <motion.div
