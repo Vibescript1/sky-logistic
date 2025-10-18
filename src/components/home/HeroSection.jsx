@@ -241,12 +241,12 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Page Loader */}
-      {/* <PageLoader
+      <PageLoader
         isLoading={isLoading}
         variant="car"
         message="Preparing your journey..."
-      /> */}
-      {isLoading && (
+      />
+      {/* {isLoading && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
           <img
             src="https://icons8.com/preloaders/preloaders/487/Speedometer-128.gif"
@@ -254,7 +254,7 @@ const HeroSection = () => {
             className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain"
           />
         </div>
-      )}
+      )} */}
     </section>
   );
 };

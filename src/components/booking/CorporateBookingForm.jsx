@@ -4,10 +4,25 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Switch } from "@/components/ui/switch";
-import { ArrowRight, ArrowLeft, CheckCircle, Building2, MapPin, Calendar, Car, User } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle,
+  Building2,
+  MapPin,
+  Calendar,
+  Car,
+  User,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 const CorporateBookingForm = () => {
   const [bookingType, setBookingType] = useState("corporate"); // "corporate" or "individual"
@@ -148,23 +163,29 @@ const CorporateBookingForm = () => {
     if (bookingType === "corporate") {
       // Corporate booking validation
       if (step === 1) {
-        if (!formData.companyName.trim()) newErrors.companyName = "Company name is required";
-        if (!formData.contactPerson.trim()) newErrors.contactPerson = "Contact person is required";
+        if (!formData.companyName.trim())
+          newErrors.companyName = "Company name is required";
+        if (!formData.contactPerson.trim())
+          newErrors.contactPerson = "Contact person is required";
         if (!formData.email.trim()) {
           newErrors.email = "Email is required";
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
           newErrors.email = "Email is invalid";
         }
         if (!formData.phone.trim()) newErrors.phone = "Phone is required";
-        if (!formData.employeeCount || formData.employeeCount < 1) newErrors.employeeCount = "Valid employee count is required";
+        if (!formData.employeeCount || formData.employeeCount < 1)
+          newErrors.employeeCount = "Valid employee count is required";
       }
 
       if (step === 2) {
-        if (!formData.pickupLocation.trim()) newErrors.pickupLocation = "Pickup location is required";
-        if (!formData.dropLocation.trim()) newErrors.dropLocation = "Drop location is required";
+        if (!formData.pickupLocation.trim())
+          newErrors.pickupLocation = "Pickup location is required";
+        if (!formData.dropLocation.trim())
+          newErrors.dropLocation = "Drop location is required";
         if (!formData.date) newErrors.date = "Date is required";
         if (!formData.time) newErrors.time = "Time is required";
-        if (!formData.vehicleType) newErrors.vehicleType = "Vehicle type is required";
+        if (!formData.vehicleType)
+          newErrors.vehicleType = "Vehicle type is required";
       }
     } else {
       // Individual booking validation (single step)
@@ -175,11 +196,14 @@ const CorporateBookingForm = () => {
         newErrors.email = "Email is invalid";
       }
       if (!formData.phone.trim()) newErrors.phone = "Phone is required";
-      if (!formData.pickupLocation.trim()) newErrors.pickupLocation = "Pickup location is required";
-      if (!formData.dropLocation.trim()) newErrors.dropLocation = "Drop location is required";
+      if (!formData.pickupLocation.trim())
+        newErrors.pickupLocation = "Pickup location is required";
+      if (!formData.dropLocation.trim())
+        newErrors.dropLocation = "Drop location is required";
       if (!formData.date) newErrors.date = "Date is required";
       if (!formData.time) newErrors.time = "Time is required";
-      if (!formData.vehicleType) newErrors.vehicleType = "Vehicle type is required";
+      if (!formData.vehicleType)
+        newErrors.vehicleType = "Vehicle type is required";
     }
 
     setErrors(newErrors);
@@ -188,17 +212,17 @@ const CorporateBookingForm = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: "" }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   const handleSelectChange = (name, value) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: "" }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -238,19 +262,29 @@ const CorporateBookingForm = () => {
 
     const formDataToSend = {
       access_key: "9d3e664b-fa9e-45f1-9d58-8067293b844f",
-      subject: `New ${bookingType === "corporate" ? "Corporate" : "Individual"} Booking Request`,
-      from_name: bookingType === "corporate" ? formData.companyName : formData.name,
+      subject: `New ${
+        bookingType === "corporate" ? "Corporate" : "Individual"
+      } Booking Request`,
+      from_name:
+        bookingType === "corporate" ? formData.companyName : formData.name,
       email: formData.email,
       replyto: formData.email,
-      name: bookingType === "corporate" ? formData.contactPerson : formData.name,
+      name:
+        bookingType === "corporate" ? formData.contactPerson : formData.name,
       message: `
-        Booking Type: ${bookingType === "corporate" ? "Corporate" : "Individual"}
-        ${bookingType === "corporate" ? `
+        Booking Type: ${
+          bookingType === "corporate" ? "Corporate" : "Individual"
+        }
+        ${
+          bookingType === "corporate"
+            ? `
         Company Name: ${formData.companyName}
         Contact Person: ${formData.contactPerson}
         Employees: ${formData.employeeCount}
-        Address: ${formData.address}` : `
-        Customer Name: ${formData.name}`}
+        Address: ${formData.address}`
+            : `
+        Customer Name: ${formData.name}`
+        }
         Email: ${formData.email}
         Phone: ${formData.phone}
         Pickup: ${formData.pickupLocation}
@@ -260,7 +294,7 @@ const CorporateBookingForm = () => {
         Vehicle Type: ${formData.vehicleType}
         Frequency: ${formData.frequency}
         Special Requirements: ${formData.specialRequirements || "None"}
-      `
+      `,
     };
 
     try {
@@ -275,7 +309,7 @@ const CorporateBookingForm = () => {
       if (result.success) {
         toast({
           title: "Booking Confirmed!",
-          description: `Your ${bookingType} booking request has been submitted successfully.`
+          description: `Your ${bookingType} booking request has been submitted successfully.`,
         });
 
         console.log(" Web3Form Response:", result);
@@ -320,12 +354,15 @@ const CorporateBookingForm = () => {
   };
 
   const StepIcon = ({ number, currentStep }) => (
-    <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 ${number < currentStep
-      ? "bg-green-500 border-green-500 text-white"
-      : number === currentStep
-        ? "bg-blue-600 border-blue-600 text-white"
-        : "border-gray-300 text-gray-500"
-      }`}>
+    <div
+      className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 ${
+        number < currentStep
+          ? "bg-green-500 border-green-500 text-white"
+          : number === currentStep
+          ? "bg-blue-600 border-blue-600 text-white"
+          : "border-gray-300 text-gray-500"
+      }`}
+    >
       {number < currentStep ? <CheckCircle className="w-4 h-4" /> : number}
     </div>
   );
@@ -336,8 +373,16 @@ const CorporateBookingForm = () => {
       <div className="px-8 pt-8 pb-6 border-b border-gray-200">
         <div className="flex items-center justify-center gap-6">
           <div className="flex items-center gap-3">
-            <Building2 className={`w-5 h-5 ${bookingType === "corporate" ? "text-blue-600" : "text-gray-400"}`} />
-            <span className={`font-medium ${bookingType === "corporate" ? "text-blue-600" : "text-gray-500"}`}>
+            <Building2
+              className={`w-5 h-5 ${
+                bookingType === "corporate" ? "text-blue-600" : "text-gray-400"
+              }`}
+            />
+            <span
+              className={`font-medium ${
+                bookingType === "corporate" ? "text-blue-600" : "text-gray-500"
+              }`}
+            >
               Corporate
             </span>
           </div>
@@ -350,8 +395,16 @@ const CorporateBookingForm = () => {
             }}
           />
           <div className="flex items-center gap-3">
-            <User className={`w-5 h-5 ${bookingType === "individual" ? "text-blue-600" : "text-gray-400"}`} />
-            <span className={`font-medium ${bookingType === "individual" ? "text-blue-600" : "text-gray-500"}`}>
+            <User
+              className={`w-5 h-5 ${
+                bookingType === "individual" ? "text-blue-600" : "text-gray-400"
+              }`}
+            />
+            <span
+              className={`font-medium ${
+                bookingType === "individual" ? "text-blue-600" : "text-gray-500"
+              }`}
+            >
               Individual
             </span>
           </div>
@@ -365,26 +418,38 @@ const CorporateBookingForm = () => {
             {[
               { number: 1, label: "Company", icon: Building2 },
               { number: 2, label: "Trip Details", icon: MapPin },
-              { number: 3, label: "Confirm", icon: CheckCircle }
+              { number: 3, label: "Confirm", icon: CheckCircle },
             ].map(({ number, label, icon: Icon }) => (
               <div key={number} className="flex flex-col items-center flex-1">
                 <div className="flex items-center w-full">
                   {number > 1 && (
-                    <div className={`flex-1 h-1 transition-all duration-500 ${number <= step ? "bg-blue-600" : "bg-gray-200"
-                      }`} />
+                    <div
+                      className={`flex-1 h-1 transition-all duration-500 ${
+                        number <= step ? "bg-blue-600" : "bg-gray-200"
+                      }`}
+                    />
                   )}
                   <div className="flex flex-col items-center relative">
                     <StepIcon number={number} currentStep={step} />
-                    <Icon className={`w-4 h-4 mt-2 transition-colors duration-300 ${number <= step ? "text-blue-600" : "text-gray-400"
-                      }`} />
+                    <Icon
+                      className={`w-4 h-4 mt-2 transition-colors duration-300 ${
+                        number <= step ? "text-blue-600" : "text-gray-400"
+                      }`}
+                    />
                   </div>
                   {number < 3 && (
-                    <div className={`flex-1 h-1 transition-all duration-500 ${number < step ? "bg-blue-600" : "bg-gray-200"
-                      }`} />
+                    <div
+                      className={`flex-1 h-1 transition-all duration-500 ${
+                        number < step ? "bg-blue-600" : "bg-gray-200"
+                      }`}
+                    />
                   )}
                 </div>
-                <span className={`text-xs font-medium mt-2 transition-colors duration-300 ${number <= step ? "text-blue-600" : "text-gray-500"
-                  }`}>
+                <span
+                  className={`text-xs font-medium mt-2 transition-colors duration-300 ${
+                    number <= step ? "text-blue-600" : "text-gray-500"
+                  }`}
+                >
                   {label}
                 </span>
               </div>
@@ -422,7 +487,10 @@ const CorporateBookingForm = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="companyName" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="companyName"
+                          className="text-sm font-semibold"
+                        >
                           Company Name *
                         </Label>
                         <Input
@@ -434,12 +502,17 @@ const CorporateBookingForm = () => {
                           className={errors.companyName ? "border-red-500" : ""}
                         />
                         {errors.companyName && (
-                          <p className="text-red-500 text-xs">{errors.companyName}</p>
+                          <p className="text-red-500 text-xs">
+                            {errors.companyName}
+                          </p>
                         )}
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="contactPerson" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="contactPerson"
+                          className="text-sm font-semibold"
+                        >
                           Contact Person *
                         </Label>
                         <Input
@@ -448,15 +521,22 @@ const CorporateBookingForm = () => {
                           value={formData.contactPerson}
                           onChange={handleInputChange}
                           placeholder="Enter contact person name"
-                          className={errors.contactPerson ? "border-red-500" : ""}
+                          className={
+                            errors.contactPerson ? "border-red-500" : ""
+                          }
                         />
                         {errors.contactPerson && (
-                          <p className="text-red-500 text-xs">{errors.contactPerson}</p>
+                          <p className="text-red-500 text-xs">
+                            {errors.contactPerson}
+                          </p>
                         )}
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="email" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="email"
+                          className="text-sm font-semibold"
+                        >
                           Email Address *
                         </Label>
                         <Input
@@ -474,7 +554,10 @@ const CorporateBookingForm = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="phone" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="phone"
+                          className="text-sm font-semibold"
+                        >
                           Phone Number *
                         </Label>
                         <Input
@@ -492,7 +575,10 @@ const CorporateBookingForm = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="employeeCount" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="employeeCount"
+                          className="text-sm font-semibold"
+                        >
                           Number of Employees *
                         </Label>
                         <Input
@@ -503,15 +589,22 @@ const CorporateBookingForm = () => {
                           value={formData.employeeCount}
                           onChange={handleInputChange}
                           placeholder="Enter number of employees"
-                          className={errors.employeeCount ? "border-red-500" : ""}
+                          className={
+                            errors.employeeCount ? "border-red-500" : ""
+                          }
                         />
                         {errors.employeeCount && (
-                          <p className="text-red-500 text-xs">{errors.employeeCount}</p>
+                          <p className="text-red-500 text-xs">
+                            {errors.employeeCount}
+                          </p>
                         )}
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="address" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="address"
+                          className="text-sm font-semibold"
+                        >
                           Company Address
                         </Label>
                         <Input
@@ -549,7 +642,10 @@ const CorporateBookingForm = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="pickupLocation" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="pickupLocation"
+                          className="text-sm font-semibold"
+                        >
                           Pickup Location *
                         </Label>
                         <div className="relative">
@@ -567,12 +663,17 @@ const CorporateBookingForm = () => {
                           />
                         </div>
                         {errors.pickupLocation && (
-                          <p className="text-red-500 text-xs">{errors.pickupLocation}</p>
+                          <p className="text-red-500 text-xs">
+                            {errors.pickupLocation}
+                          </p>
                         )}
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="dropLocation" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="dropLocation"
+                          className="text-sm font-semibold"
+                        >
                           Drop Location *
                         </Label>
                         <Input
@@ -581,10 +682,14 @@ const CorporateBookingForm = () => {
                           value={formData.dropLocation}
                           onChange={handleInputChange}
                           placeholder="Enter drop location"
-                          className={errors.dropLocation ? "border-red-500" : ""}
+                          className={
+                            errors.dropLocation ? "border-red-500" : ""
+                          }
                         />
                         {errors.dropLocation && (
-                          <p className="text-red-500 text-xs">{errors.dropLocation}</p>
+                          <p className="text-red-500 text-xs">
+                            {errors.dropLocation}
+                          </p>
                         )}
                       </div>
 
@@ -598,6 +703,7 @@ const CorporateBookingForm = () => {
                           type="date"
                           value={formData.date}
                           onChange={handleInputChange}
+                          min={new Date().toISOString().split("T")[0]}
                           className={errors.date ? "border-red-500" : ""}
                         />
                         {errors.date && (
@@ -623,18 +729,29 @@ const CorporateBookingForm = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="vehicleType" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="vehicleType"
+                          className="text-sm font-semibold"
+                        >
                           Vehicle Type *
                         </Label>
                         <Select
                           value={formData.vehicleType}
-                          onValueChange={(value) => handleSelectChange("vehicleType", value)}
+                          onValueChange={(value) =>
+                            handleSelectChange("vehicleType", value)
+                          }
                         >
-                          <SelectTrigger className={`bg-white border-2 transition-all duration-200 ${errors.vehicleType ? "border-red-500" : "border-gray-200 hover:border-blue-400 focus:border-blue-500"}`}>
+                          <SelectTrigger
+                            className={`bg-white border-2 transition-all duration-200 ${
+                              errors.vehicleType
+                                ? "border-red-500"
+                                : "border-gray-200 hover:border-blue-400 focus:border-blue-500"
+                            }`}
+                          >
                             <SelectValue placeholder="Select vehicle type" />
                           </SelectTrigger>
                           <SelectContent className="bg-white border-2 border-gray-200 shadow-xl rounded-xl p-2">
-                            {vehicleOptions.map(option => (
+                            {vehicleOptions.map((option) => (
                               <SelectItem
                                 key={option.value}
                                 value={option.value}
@@ -649,23 +766,30 @@ const CorporateBookingForm = () => {
                           </SelectContent>
                         </Select>
                         {errors.vehicleType && (
-                          <p className="text-red-500 text-xs">{errors.vehicleType}</p>
+                          <p className="text-red-500 text-xs">
+                            {errors.vehicleType}
+                          </p>
                         )}
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="frequency" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="frequency"
+                          className="text-sm font-semibold"
+                        >
                           Service Frequency
                         </Label>
                         <Select
                           value={formData.frequency}
-                          onValueChange={(value) => handleSelectChange("frequency", value)}
+                          onValueChange={(value) =>
+                            handleSelectChange("frequency", value)
+                          }
                         >
                           <SelectTrigger className="bg-white border-2 border-gray-200 hover:border-green-400 focus:border-green-500 transition-all duration-200">
                             <SelectValue placeholder="Select frequency" />
                           </SelectTrigger>
                           <SelectContent className="bg-white border-2 border-gray-200 shadow-xl rounded-xl p-2">
-                            {frequencyOptions.map(option => (
+                            {frequencyOptions.map((option) => (
                               <SelectItem
                                 key={option.value}
                                 value={option.value}
@@ -682,7 +806,10 @@ const CorporateBookingForm = () => {
                       </div>
 
                       <div className="md:col-span-2 space-y-2">
-                        <Label htmlFor="specialRequirements" className="text-sm font-semibold">
+                        <Label
+                          htmlFor="specialRequirements"
+                          className="text-sm font-semibold"
+                        >
                           Special Requirements
                         </Label>
                         <Textarea
@@ -715,7 +842,8 @@ const CorporateBookingForm = () => {
                         Confirm Your Corporate Booking
                       </h3>
                       <p className="text-gray-600 max-w-md mx-auto">
-                        Please review all information carefully before submitting your corporate booking request.
+                        Please review all information carefully before
+                        submitting your corporate booking request.
                       </p>
                     </div>
 
@@ -728,24 +856,40 @@ const CorporateBookingForm = () => {
                           </h4>
                           <div className="space-y-3">
                             <div>
-                              <span className="font-medium text-sm text-blue-700">Company Name:</span>
-                              <p className="text-blue-900">{formData.companyName}</p>
+                              <span className="font-medium text-sm text-blue-700">
+                                Company Name:
+                              </span>
+                              <p className="text-blue-900">
+                                {formData.companyName}
+                              </p>
                             </div>
                             <div>
-                              <span className="font-medium text-sm text-blue-700">Contact Person:</span>
-                              <p className="text-blue-900">{formData.contactPerson}</p>
+                              <span className="font-medium text-sm text-blue-700">
+                                Contact Person:
+                              </span>
+                              <p className="text-blue-900">
+                                {formData.contactPerson}
+                              </p>
                             </div>
                             <div>
-                              <span className="font-medium text-sm text-blue-700">Email:</span>
+                              <span className="font-medium text-sm text-blue-700">
+                                Email:
+                              </span>
                               <p className="text-blue-900">{formData.email}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-sm text-blue-700">Phone:</span>
+                              <span className="font-medium text-sm text-blue-700">
+                                Phone:
+                              </span>
                               <p className="text-blue-900">{formData.phone}</p>
                             </div>
                             <div>
-                              <span className="font-medium text-sm text-blue-700">Employees:</span>
-                              <p className="text-blue-900">{formData.employeeCount}</p>
+                              <span className="font-medium text-sm text-blue-700">
+                                Employees:
+                              </span>
+                              <p className="text-blue-900">
+                                {formData.employeeCount}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -759,27 +903,49 @@ const CorporateBookingForm = () => {
                           </h4>
                           <div className="space-y-3">
                             <div>
-                              <span className="font-medium text-sm text-gray-700">Pickup:</span>
-                              <p className="text-gray-900">{formData.pickupLocation}</p>
-                            </div>
-                            <div>
-                              <span className="font-medium text-sm text-gray-700">Drop-off:</span>
-                              <p className="text-gray-900">{formData.dropLocation}</p>
-                            </div>
-                            <div>
-                              <span className="font-medium text-sm text-gray-700">Date & Time:</span>
-                              <p className="text-gray-900">{formData.date} at {formData.time}</p>
-                            </div>
-                            <div>
-                              <span className="font-medium text-sm text-gray-700">Vehicle:</span>
+                              <span className="font-medium text-sm text-gray-700">
+                                Pickup:
+                              </span>
                               <p className="text-gray-900">
-                                {vehicleOptions.find(v => v.value === formData.vehicleType)?.label || formData.vehicleType}
+                                {formData.pickupLocation}
                               </p>
                             </div>
                             <div>
-                              <span className="font-medium text-sm text-gray-700">Frequency:</span>
+                              <span className="font-medium text-sm text-gray-700">
+                                Drop-off:
+                              </span>
                               <p className="text-gray-900">
-                                {frequencyOptions.find(f => f.value === formData.frequency)?.label}
+                                {formData.dropLocation}
+                              </p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-sm text-gray-700">
+                                Date & Time:
+                              </span>
+                              <p className="text-gray-900">
+                                {formData.date} at {formData.time}
+                              </p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-sm text-gray-700">
+                                Vehicle:
+                              </span>
+                              <p className="text-gray-900">
+                                {vehicleOptions.find(
+                                  (v) => v.value === formData.vehicleType
+                                )?.label || formData.vehicleType}
+                              </p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-sm text-gray-700">
+                                Frequency:
+                              </span>
+                              <p className="text-gray-900">
+                                {
+                                  frequencyOptions.find(
+                                    (f) => f.value === formData.frequency
+                                  )?.label
+                                }
                               </p>
                             </div>
                           </div>
@@ -792,7 +958,9 @@ const CorporateBookingForm = () => {
                         <h4 className="font-semibold text-lg text-yellow-900 mb-2">
                           Special Requirements
                         </h4>
-                        <p className="text-yellow-800">{formData.specialRequirements}</p>
+                        <p className="text-yellow-800">
+                          {formData.specialRequirements}
+                        </p>
                       </div>
                     )}
 
@@ -806,7 +974,10 @@ const CorporateBookingForm = () => {
                           className="mt-1"
                         />
                         <div className="flex-1">
-                          <Label htmlFor="acceptTerms" className="text-sm font-semibold text-blue-900 cursor-pointer">
+                          <Label
+                            htmlFor="acceptTerms"
+                            className="text-sm font-semibold text-blue-900 cursor-pointer"
+                          >
                             I accept the{" "}
                             <a
                               href="/terms-and-conditions"
@@ -827,7 +998,8 @@ const CorporateBookingForm = () => {
                             </a>
                           </Label>
                           <p className="text-xs text-blue-700 mt-1">
-                            By checking this box, you agree to our terms of service and data processing policies.
+                            By checking this box, you agree to our terms of
+                            service and data processing policies.
                           </p>
                         </div>
                       </div>
@@ -846,7 +1018,7 @@ const CorporateBookingForm = () => {
                 className="flex-1"
               >
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4 mt-4">
                     <User className="w-8 h-8 text-green-600" />
                   </div>
                   <h3 className="font-bold text-3xl text-gray-900 mb-2">
@@ -912,18 +1084,29 @@ const CorporateBookingForm = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="vehicleType" className="text-sm font-semibold">
+                    <Label
+                      htmlFor="vehicleType"
+                      className="text-sm font-semibold"
+                    >
                       Vehicle Type *
                     </Label>
                     <Select
                       value={formData.vehicleType}
-                      onValueChange={(value) => handleSelectChange("vehicleType", value)}
+                      onValueChange={(value) =>
+                        handleSelectChange("vehicleType", value)
+                      }
                     >
-                      <SelectTrigger className={`bg-white border-2 transition-all duration-200 ${errors.vehicleType ? "border-red-500" : "border-gray-200 hover:border-blue-400 focus:border-blue-500"}`}>
+                      <SelectTrigger
+                        className={`bg-white border-2 transition-all duration-200 ${
+                          errors.vehicleType
+                            ? "border-red-500"
+                            : "border-gray-200 hover:border-blue-400 focus:border-blue-500"
+                        }`}
+                      >
                         <SelectValue placeholder="Select vehicle type" />
                       </SelectTrigger>
                       <SelectContent className="bg-white border-2 border-gray-200 shadow-xl rounded-xl p-2">
-                        {vehicleOptions.map(option => (
+                        {vehicleOptions.map((option) => (
                           <SelectItem
                             key={option.value}
                             value={option.value}
@@ -938,12 +1121,17 @@ const CorporateBookingForm = () => {
                       </SelectContent>
                     </Select>
                     {errors.vehicleType && (
-                      <p className="text-red-500 text-xs">{errors.vehicleType}</p>
+                      <p className="text-red-500 text-xs">
+                        {errors.vehicleType}
+                      </p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="pickupLocation" className="text-sm font-semibold">
+                    <Label
+                      htmlFor="pickupLocation"
+                      className="text-sm font-semibold"
+                    >
                       Pickup Location *
                     </Label>
                     <div className="relative">
@@ -961,12 +1149,17 @@ const CorporateBookingForm = () => {
                       />
                     </div>
                     {errors.pickupLocation && (
-                      <p className="text-red-500 text-xs">{errors.pickupLocation}</p>
+                      <p className="text-red-500 text-xs">
+                        {errors.pickupLocation}
+                      </p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="dropLocation" className="text-sm font-semibold">
+                    <Label
+                      htmlFor="dropLocation"
+                      className="text-sm font-semibold"
+                    >
                       Drop Location *
                     </Label>
                     <Input
@@ -978,7 +1171,9 @@ const CorporateBookingForm = () => {
                       className={errors.dropLocation ? "border-red-500" : ""}
                     />
                     {errors.dropLocation && (
-                      <p className="text-red-500 text-xs">{errors.dropLocation}</p>
+                      <p className="text-red-500 text-xs">
+                        {errors.dropLocation}
+                      </p>
                     )}
                   </div>
 
@@ -991,6 +1186,7 @@ const CorporateBookingForm = () => {
                       name="date"
                       type="date"
                       value={formData.date}
+                      min={new Date().toISOString().split("T")[0]}
                       onChange={handleInputChange}
                       className={errors.date ? "border-red-500" : ""}
                     />
@@ -1017,7 +1213,10 @@ const CorporateBookingForm = () => {
                   </div>
 
                   <div className="md:col-span-2 space-y-2">
-                    <Label htmlFor="specialRequirements" className="text-sm font-semibold">
+                    <Label
+                      htmlFor="specialRequirements"
+                      className="text-sm font-semibold"
+                    >
                       Special Requirements (Optional)
                     </Label>
                     <Textarea
@@ -1041,7 +1240,10 @@ const CorporateBookingForm = () => {
                       className="mt-1"
                     />
                     <div className="flex-1">
-                      <Label htmlFor="acceptTerms" className="text-sm font-semibold text-blue-900 cursor-pointer">
+                      <Label
+                        htmlFor="acceptTerms"
+                        className="text-sm font-semibold text-blue-900 cursor-pointer"
+                      >
                         I accept the{" "}
                         <a
                           href="/terms-and-conditions"
@@ -1062,7 +1264,8 @@ const CorporateBookingForm = () => {
                         </a>
                       </Label>
                       <p className="text-xs text-blue-700 mt-1">
-                        By checking this box, you agree to our terms of service and data processing policies.
+                        By checking this box, you agree to our terms of service
+                        and data processing policies.
                       </p>
                     </div>
                   </div>
