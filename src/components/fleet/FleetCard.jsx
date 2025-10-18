@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 const FleetCard = ({ vehicle, isLoading = false, index = 0 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
-
   // Show skeleton loading state
   if (isLoading) {
     return <CardSkeleton className="glass-card-light rounded-2xl" />;
@@ -24,7 +23,7 @@ const FleetCard = ({ vehicle, isLoading = false, index = 0 }) => {
       transition={{
         duration: 0.5,
         delay: staggerDelay,
-        ease: "easeOut"
+        ease: "easeOut",
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
@@ -99,7 +98,7 @@ const FleetCard = ({ vehicle, isLoading = false, index = 0 }) => {
               className="flex items-center gap-2 text-sm text-muted-foreground"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: staggerDelay + 0.7 + (featureIndex * 0.05) }}
+              transition={{ delay: staggerDelay + 0.7 + featureIndex * 0.05 }}
             >
               <CheckCircle className="w-4 h-4 text-primary" />
               <span>{feature}</span>
