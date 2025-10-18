@@ -111,13 +111,6 @@ const FleetShowcase = () => {
                   </span>
                 </div>
 
-                {/* Price Tag */}
-                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm">
-                  <span className="text-lg font-bold text-slate-900">
-                    ₹{vehicle.price}
-                  </span>
-                  <span className="text-slate-500 text-sm ml-1">/day</span>
-                </div>
               </div>
 
               {/* Content */}

@@ -27,19 +27,22 @@ const Contact = () => {
   useEffect(() => {
     // Initialize map
     if (mapRef.current && !mapInstanceRef.current) {
-      mapInstanceRef.current = L.map(mapRef.current).setView([28.6139, 77.2090], 13);
+      // Hyderabad coordinates
+      const hyderabadCoords = [17.4488, 78.3906];
+      
+      mapInstanceRef.current = L.map(mapRef.current).setView(hyderabadCoords, 15);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(mapInstanceRef.current);
 
       // Add marker for business location
-      L.marker([28.6139, 77.2090])
+      L.marker(hyderabadCoords)
         .addTo(mapInstanceRef.current)
         .bindPopup(`
           <div class="text-center p-2">
             <strong className="text-blue-600">Sky Logistic HQ</strong><br/>
-            <span class="text-sm text-gray-600">New Delhi, India</span>
+            <span class="text-sm text-gray-600">Gachibowli, Hyderabad, India</span>
           </div>
         `);
     }
@@ -125,7 +128,7 @@ const Contact = () => {
     {
       Icon: MapPin,
       title: "Visit Our Office",
-      content: "123 Business District, Connaught Place, New Delhi - 110001",
+      content: "Plot No. 41-48, Flat No.502, Telecom Nagar, Gachibowli, Hyderabad, Telangana – 500032",
       description: "Headquarters - Schedule a meeting",
       color: "blue",
       bgColor: "bg-blue-50",
@@ -135,7 +138,7 @@ const Contact = () => {
     {
       Icon: Phone,
       title: "Call Us Directly",
-      content: "+91 98765 43210",
+      content: "+91 9121261234",
       description: "24/7 Customer Support Line",
       color: "green",
       bgColor: "bg-green-50",
@@ -145,7 +148,7 @@ const Contact = () => {
     {
       Icon: Mail,
       title: "Email Us",
-      content: "info@skylogistic.com",
+      content: "booking@skylogisticshub.com",
       description: "Quick response guaranteed",
       color: "purple",
       bgColor: "bg-purple-50",

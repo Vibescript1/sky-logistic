@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { HelpCircle, ChevronDown, ChevronUp, Calendar, DollarSign, Car, Shield } from "lucide-react";
 import { useState } from "react";
 
 const FAQ = () => {
@@ -18,7 +18,7 @@ const FAQ = () => {
   const faqData = [
     {
       category: "Booking & Reservations",
-      icon: "📅",
+      icon: <Calendar className="w-6 h-6 text-blue-600" />,
       questions: [
         {
           question: "How far in advance should I book my corporate cab?",
@@ -36,7 +36,7 @@ const FAQ = () => {
     },
     {
       category: "Pricing & Payment",
-      icon: "💰",
+      icon: <DollarSign className="w-6 h-6 text-green-600" />,
       questions: [
         {
           question: "How are your prices calculated?",
@@ -54,7 +54,7 @@ const FAQ = () => {
     },
     {
       category: "Vehicles & Services",
-      icon: "🚗",
+      icon: <Car className="w-6 h-6 text-amber-600" />,
       questions: [
         {
           question: "What types of vehicles do you offer?",
@@ -72,7 +72,7 @@ const FAQ = () => {
     },
     {
       category: "Safety & Support",
-      icon: "🛡️",
+      icon: <Shield className="w-6 h-6 text-red-600" />,
       questions: [
         {
           question: "What safety measures do you implement?",
@@ -142,7 +142,14 @@ const FAQ = () => {
                 className="mb-12"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl">{category.icon}</span>
+                  <div className="p-2 rounded-lg bg-opacity-10" style={{
+                    backgroundColor: category.icon.props.className.includes('blue') ? 'rgba(37, 99, 235, 0.1)' : 
+                                    category.icon.props.className.includes('green') ? 'rgba(22, 163, 74, 0.1)' :
+                                    category.icon.props.className.includes('amber') ? 'rgba(217, 119, 6, 0.1)' :
+                                    'rgba(220, 38, 38, 0.1)'
+                  }}>
+                    {category.icon}
+                  </div>
                   <h2 className="font-bold text-2xl text-gray-900">{category.category}</h2>
                 </div>
 

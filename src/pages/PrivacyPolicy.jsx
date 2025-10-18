@@ -6,132 +6,154 @@ import { Shield, Eye, Lock, FileText, Users, Database, Mail, Phone } from "lucid
 const PrivacyPolicy = () => {
   const sections = [
     {
-      title: "Data Protection Principles",
+      title: "Introduction",
       icon: Shield,
       content: [
-        "Sky Logistic is committed to protecting the privacy and security of your personal information in accordance with the EU General Data Protection Regulation (GDPR) and applicable Indian data protection laws",
-        "We will use your personal data only in-line with principles of lawfulness, fairness and transparency, purpose limitation, data minimization, accuracy, storage limitation, and integrity and confidentiality",
-        "This Privacy Policy applies to all customers, clients, and visitors using our transportation services. We are the 'data controller' responsible for deciding how we hold and use your personal information"
+        "Sky Logistic is committed to protecting the privacy and security of your personal information. This privacy statement describes how we collect and use your personal information and data, in accordance with the EU General Data Protection Regulation (GDPR). It applies to all guests and visitors, known through this document as 'data subjects'.",
+        "Sky Logistic is a 'data controller'. This means that we are responsible for deciding how we hold and use personal information about you. We are required under data protection legislation to notify you of the information contained in this privacy statement.",
+        "This statement applies to data subjects. This statement does not form part of any contract to provide services. We may update this statement at any time. It is important that you read this statement, together with any other privacy statement we may provide on specific occasions when we are collecting or processing personal information about you, so that you are aware of how and why we are using such information."
+      ]
+    },
+    {
+      title: "Data Protection Principles",
+      icon: Lock,
+      content: [
+        "We will comply with data protection law. This says that the personal information we hold about you must be:",
+        "• Used lawfully, fairly and in a transparent way.",
+        "• Collected only for valid purposes that we have clearly explained to you and not used in any way that is incompatible with those purposes.",
+        "• Relevant to the purposes we have told you about and limited only to those purposes.",
+        "• Accurate and kept up to date.",
+        "• Kept only as long as necessary for the purposes we have told you about. Kept securely.",
+        "This is the only principle that deals explicitly with security. The GDPR states that personal data must be 'processed in a manner that ensures appropriate security of the personal data, including protection against unauthorized or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organizational measures'."
       ]
     },
     {
       title: "Information We Collect",
       icon: Database,
       content: [
-        "Personal contact details including name, title, addresses, telephone numbers, and email addresses",
-        "Date of birth, gender, marital status, and emergency contact information",
-        "Government identification numbers (PAN card, Aadhaar), bank account details, and tax status information",
-        "Driving license and vehicle registration information for our drivers and fleet management",
-        "Booking history, travel preferences, and service usage data",
-        "Device information including IP address, browser type, and operating system",
-        "Location data through GPS-enabled services and mobile applications",
-        "CCTV footage, door access records, and other electronic security information",
-        "Communication records including customer support interactions",
-        "Information about your use of our information and communication systems",
-        "Photographs for identification and security purposes"
+        "Personal data, or personal information, means any information about an individual from which that person can be identified. It does not include data where the identity has been removed (anonymous data). There are 'special categories' of more sensitive personal data which require a higher level of protection.",
+        "We may collect, store, and use the following categories of personal information about you:",
+        "• Personal contact details such as name, title, addresses, telephone numbers, and personal email addresses.",
+        "• Date of birth; Gender; Marital status; Next of kin and emergency contact information.",
+        "• National Insurance or TAX ID number/PAN card; Bank account details and tax status information.",
+        "• Driving license; Grievance information; CCTV footage and other information obtained through electronic means such as door access records.",
+        "• Information about your use of our information and communications systems; Photographs;"
       ]
     },
     {
-      title: "Special Categories of Sensitive Information",
+      title: "Special Categories of Information",
       icon: Eye,
       content: [
-        "We may collect sensitive personal information including race or ethnicity, religious beliefs, and sexual orientation only when necessary and with explicit consent",
-        "This information requires higher levels of protection and will only be processed with your explicit written consent or when required by law",
-        "We process this type of information only in limited circumstances as outlined in this policy"
+        "We may also collect, store and use the following 'special categories' of more sensitive personal information:",
+        "• Information about your race or ethnicity, religious beliefs, sexual orientation.",
+        "This information requires higher levels of protection and will only be processed with your explicit written consent or when required by law. We process this type of information in the following circumstances:",
+        "• In limited circumstances, with your explicit written consent.",
+        "• Where we need to carry out our legal obligations.",
+        "• Where it is needed in the public interest, such as for requests by CBI, police or governmental authorities.",
+        "• Where it is needed in relation to legal claims or where it is needed to protect your interests (or someone else's interests) and you are not capable of giving your consent, or where you have already made the information public."
       ]
     },
     {
       title: "How We Collect Your Information",
       icon: Users,
       content: [
-        "Directly from you through bookings, reservations, check-ins, and service registration",
-        "From third parties such as booking agencies, corporate accounts, or travel management companies",
-        "Through our mobile applications and GPS tracking systems",
-        "From security systems including CCTV and access control systems",
-        "Through customer support interactions and feedback systems"
+        "We collect personal information about data subjects through various methods; check-ins, bookings, and reservations. Either directly from data subjects or sometimes from a third party acting on our behalf (for example through a booking agency, travel agent or corporate account)."
       ]
     },
     {
       title: "How We Use Your Information",
       icon: FileText,
       content: [
-        "To perform contracts and provide transportation services including booking management and route optimization",
-        "To comply with legal obligations including regulatory requirements and safety standards",
-        "For legitimate business interests such as service improvement, fraud prevention, and network security",
-        "To protect your interests and ensure passenger and driver safety",
-        "For public interest purposes or when requested by law enforcement authorities",
-        "To conduct data analytics for service improvement and customer satisfaction",
-        "To monitor use of our systems for compliance and security purposes"
-      ]
-    },
-    {
-      title: "Legal Basis for Processing",
-      icon: Lock,
-      content: [
-        "Contract performance - to provide and manage transportation services",
-        "Legal compliance - to meet regulatory and statutory requirements",
-        "Legitimate interests - for business operations, security, and service improvement",
-        "Consent - when you explicitly agree to specific processing activities",
-        "Vital interests - to protect health and safety of passengers and drivers",
-        "Public interest - when required by government authorities or law enforcement"
+        "We will only use your personal information when the law allows us to. Most commonly, we will use your personal information in the following circumstances:",
+        "• Where we need to perform the contract we have entered into with you.",
+        "• Where we need to comply with a legal obligation.",
+        "• Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.",
+        "• Where you have given us explicit consent to do so.",
+        "\nWe may also use your personal information in the following situations, which are likely to be rare:",
+        "• Where we need to protect your interests (or someone else's interests).",
+        "• Where it is needed in the public interest or for official purposes or requested for by the CBI, police or governmental authorities.",
+        "\nSituations in which we will use your personal information:",
+        "We need all the categories of information in the list above primarily to allow us to perform our contract with you and to enable us to comply with legal obligations. In some cases, we may use your personal information to pursue legitimate interests of our own or those of third parties."
       ]
     },
     {
       title: "Data Sharing and Third Parties",
       icon: Users,
       content: [
-        "We share information with verified drivers and fleet operators to facilitate service delivery",
-        "Third-party service providers for payment processing, data analysis, and customer support",
-        "Insurance companies for claims processing and risk management",
-        "Regulatory authorities when required by law or for safety investigations",
-        "Other entities within Sky Logistic group for operational efficiency",
-        "Law enforcement agencies when legally required or for public safety"
+        "We may have to share your data with third parties, including third-party service providers and other entities in Sky Logistic. We require appointed third parties to respect the security of your data and to treat it in accordance with the law.",
+        "We will share your personal information with third parties where required by law, or where we have another legitimate interest in doing so, or when we have your explicit consent.",
+        "\nWhich third-party service providers process my personal information?",
+        "'Third parties' includes third-party service providers (including contractors and designated agents) and other entities within our group.",
+        "\nHow secure is my information with third-party service providers and other entities in our group?",
+        "All our third-party service providers and other entities in the group are required to take appropriate security measures to protect your personal information in line with our policies. We do not allow our third-party service providers to use your personal data for their own purposes. We only permit them to process your personal data for specified purposes and in accordance with our instructions.",
+        "\nWhen might you share my personal information with other entities in the group?",
+        "We may share your personal information with other entities in Sky Logistic as part of our regular reporting activities on company performance, in the context of system maintenance, support and hosting of data.",
+        "\nWhat about other third parties?",
+        "We may share your personal information with other third parties, for example in the context of the possible sale or restructuring of the business. We may also need to share your personal information with a regulator or to otherwise comply with the law."
       ]
     },
     {
       title: "International Data Transfers",
       icon: FileText,
       content: [
-        "In accordance with Section 75 of the IT Act, our policy applies to any data processing involving computer systems located in India",
-        "When data is transferred outside India, sections 43A and 72A of the IT Act may be applicable",
-        "We ensure appropriate safeguards are in place for international transfers",
-        "Data transfers are conducted only when necessary and with proper security measures"
+        "Section 75 of the IT Act speaks about the extra-territorial applicability of the Act. It provides that IT Act shall apply to any offence committed by any person irrespective of his nationality, provided such act or conduct constituting the offence involves a computer, computer system or computer network located in India.",
+        "Therefore, when the personal sensitive data is taken outside the territories of India, sections (43A and 72A) of the IT Act may be applicable."
       ]
     },
     {
-      title: "Data Security Measures",
+      title: "Data Security",
       icon: Lock,
       content: [
-        "Industry-standard encryption for data transmission and storage",
-        "Secure data centers with restricted physical and digital access",
-        "Regular security audits and vulnerability assessments",
-        "Access controls and authentication requirements for all systems",
-        "Employee training on data protection and privacy practices",
-        "Incident response procedures for suspected data breaches",
-        "Third-party processor agreements with confidentiality requirements"
+        "We have put in place measures to protect the security of your information. Third parties will only process your personal information on our instructions and where they have agreed to treat the information confidentially, legally and securely.",
+        "We have put in place appropriate security measures to prevent your personal information from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal information to those employees, agents, contractors and other third parties who have a business need to know. They will only process your personal information on our instructions and they are subject to a duty of confidentiality.",
+        "We have put in place procedures to deal with any suspected data security breach and will notify you and any applicable regulator of a suspected breach where we are legally required to do so.",
+        "\nThe GDPR states that personal data must be 'processed in a manner that ensures appropriate security of the personal data, including protection against unauthorized or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organizational measures'.",
+        "The GDPR is deliberately vague about what measures organizations should take, because technological and organizational best practices are constantly changing. Currently, organizations should encrypt and/or pseudonymize personal data wherever possible, but they should also consider whatever other options are suitable."
       ]
     },
     {
       title: "Data Retention",
       icon: Database,
       content: [
-        "Personal information is retained only as long as necessary for service provision and legal compliance",
-        "Retention periods are determined by business needs, legal requirements, and statutory obligations",
-        "Data may be anonymized for analytical purposes when no longer needed for operational use",
-        "Specific retention schedules are maintained for different categories of information"
+        "How long will you use my information for?",
+        "We will only retain your personal information for as long as necessary to fulfill the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements. To determine the appropriate retention period for personal data, we consider the amount, nature, and sensitivity of the personal data, the potential risk of harm from unauthorized use or disclosure of your personal data, the purposes for which we process your personal data and whether we can achieve those purposes through other means, and the applicable legal requirements.",
+        "In some circumstances we may anonymize your personal information so that it can no longer be associated with you, in which case we may use such information without further statement to you."
       ]
     },
     {
       title: "Your Rights and Choices",
       icon: Eye,
       content: [
-        "Access your personal information and receive copies of data we hold",
-        "Correct inaccurate or incomplete personal information",
-        "Request erasure of personal information when no longer necessary",
-        "Object to processing based on legitimate interests or direct marketing",
-        "Request restriction of processing during investigations or disputes",
-        "Data portability to transfer information to another service provider",
-        "Withdraw consent for specific processing activities"
+        "Your duty to inform us of changes - It is important that the personal information we hold about you is accurate and current. Please keep us informed if your personal information changes during your relationship with us.",
+        "\nUnder certain circumstances, by law you have the right to:",
+        "• Request access to your personal information (commonly known as a 'data subject access request'). This enables you to receive a copy of the personal information we hold about you and to check that we are lawfully processing it.",
+        "• Request correction of the personal information that we hold about you. This enables you to have any incomplete or inaccurate information we hold about you corrected.",
+        "• Request erasure of your personal information. This enables you to ask us to delete or remove personal information where there is no good reason for us continuing to process it. You also have the right to ask us to delete or remove your personal information where you have exercised your right to object to processing.",
+        "• Object to processing of your personal information where we are relying on a legitimate interest (or those of a third party) and there is something about your particular situation which makes you want to object to processing on this ground. You also have the right to object where we are processing your personal information for direct marketing purposes.",
+        "• Request the restriction of processing of your personal information. This enables you to ask us to suspend the processing of personal information about you, for example if you want us to establish its accuracy or the reason for processing it.",
+        "\nNo fee is usually required",
+        "You will not have to pay a fee to access your personal information (or to exercise any of the other rights). However, we may charge a reasonable fee if your request for access is clearly unfounded or excessive. Alternatively, we may refuse to comply with the request in such circumstances.",
+        "\nWhat we may need from you",
+        "We may need to request specific information from you to help us confirm your identity and ensure your right to access the information (or to exercise any of your other rights). This is another appropriate security measure to ensure that personal information is not disclosed to any person who has no right to receive it.",
+        "\nRight to withdraw consent",
+        "In the limited circumstances where you may have provided your consent to the collection, processing and transfer of your personal information for a specific purpose, you have the right to withdraw your consent for that specific processing at any time. Once we have received notification that you have withdrawn your consent, we will no longer process your information for the purpose or purposes you originally agreed to, unless we have another legitimate basis for doing so in law.",
+        "You have the right to make a complaint at concerned authority."
+      ]
+    },
+    {
+      title: "Changes to This Policy",
+      icon: FileText,
+      content: [
+        "We reserve the right to update this privacy statement at any time, and we will provide you with a new privacy statement when we make any substantial updates. We may also notify you in other ways from time to time about the processing of your personal information.",
+        "It is important that the personal information we hold about you is accurate and current. Please keep us informed if your personal information changes during your relationship with us."
+      ]
+    },
+    {
+      title: "Contact Us",
+      icon: Users,
+      content: [
+        "In case of any questions or suggestions regarding the Policy, please contact Sky Logistic at:",
+        "Email: info@skylogistic.com"
       ]
     }
   ];
@@ -140,14 +162,14 @@ const PrivacyPolicy = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "privacy@skylogistic.com",
-      href: "mailto:privacy@skylogistic.com"
+      value: "info@skylogistic.com",
+      href: "mailto:info@skylogistic.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91-1800-XXX-XXXX",
-      href: "tel:+911800XXXXXXX"
+      value: "+91 9876543210",
+      href: "tel:+919876543210"
     }
   ];
 
@@ -184,7 +206,7 @@ const PrivacyPolicy = () => {
               Privacy <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-400">Policy</span>
             </h1>
             <p className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8">
-              Sky Logistic is committed to protecting your privacy and ensuring the security of your personal information in accordance with GDPR and applicable data protection laws.
+              Sky Logistic is committed to protecting your privacy and ensuring the security of your personal information in accordance with GDPR and applicable data protection laws. This policy explains how we collect, use, and protect your personal data.
             </p>
             <div className="text-blue-100 text-sm">
               Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
