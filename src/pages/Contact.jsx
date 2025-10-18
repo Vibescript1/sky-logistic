@@ -60,27 +60,66 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+  const formDataToSend = {
+    access_key: "9d3e664b-fa9e-45f1-9d58-8067293b844f", 
+    subject: `New Contact Inquiry: ${formData.subject}`,
+    from_name: formData.name,
+    email: formData.email,
+    replyto: formData.email,
+    message: `
+      Name: ${formData.name}
+      Email: ${formData.email}
+      Phone: ${formData.phone || "Not provided"}
+      Subject: ${formData.subject}
+      Message: ${formData.message}
+    `,
+  };
 
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formDataToSend),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+        duration: 4000,
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } else {
+      toast({
+        title: "Failed to Send",
+        description: "Something went wrong. Please try again.",
+        duration: 4000,
+      });
+      console.error("Failed to send:", result);
+    }
+  } catch (error) {
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Error",
+      description: "There was a problem submitting the form.",
       duration: 4000,
     });
-
+    console.error("Error submitting form:", error);
+  } finally {
     setIsSubmitting(false);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: ""
-    });
-  };
+  }
+};
 
   const contactInfo = [
     {

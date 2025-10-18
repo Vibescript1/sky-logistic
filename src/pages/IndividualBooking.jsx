@@ -164,11 +164,11 @@ const IndividualBooking = () => {
 
   const [processingToast, setProcessingToast] = useState(null);
 
-  const handleSubmit = async (e) => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     console.log("Form submitted!", formData); // Debug log
-    
+
     if (!validateForm()) {
       console.log("Validation failed"); // Debug log
       toast({
@@ -179,19 +179,9 @@ const IndividualBooking = () => {
       return;
     }
 
-    if (!acceptTerms) {
-      console.log("Terms not accepted"); // Debug log
-      toast({
-        title: "Terms Required",
-        description: "Please accept the Terms & Conditions to proceed.",
-        variant: "destructive",
-      });
-      return;
-    }
-    
     console.log("Validation passed, starting submission"); // Debug log
     setIsLoading(true);
-    
+
     // Show processing toast and store reference
     const processing = toast({
       title: "Processing...",
@@ -199,57 +189,89 @@ const IndividualBooking = () => {
     });
     console.log("Processing toast created:", processing);
     setProcessingToast(processing);
-    
-    // Simulate API call
+
+    const formDataToSend = {
+      access_key: "9d3e664b-fa9e-45f1-9d58-8067293b844f",
+      subject: "New Individual Booking Request",
+      from_name: formData.name,
+      email: formData.email,
+      replyto: formData.email,
+      message: `
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Phone: ${formData.phone}
+        Pickup Location: ${formData.pickupLocation}
+        Drop Location: ${formData.dropLocation}
+        Date: ${formData.date}
+        Time: ${formData.time}
+        Vehicle Type: ${formData.vehicleType}
+      `,
+    };
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      console.log("API call successful"); // Debug log
-      
-      // Dismiss processing toast before showing success
-      if (processing) {
-        processing.dismiss();
-      }
-      
-      // Show success toast
-      const successToast = toast({
-        title: "🎉 Booking Confirmed!",
-        description: "Your ride has been booked successfully. You will receive a confirmation email shortly.",
-        duration: 5000,
-        variant: "default",
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formDataToSend),
       });
-      console.log("Success toast created:", successToast);
 
-      // Also show a simple success toast as backup
-      setTimeout(() => {
-        const backupToast = toast({
-          title: "Success!",
-          description: "Booking completed successfully!",
-          duration: 3000,
+      const result = await response.json();
+
+      if (result.success) {
+
+        console.log("API call successful"); // Debug log
+
+        // Dismiss processing toast before showing success
+        if (processing) {
+          processing.dismiss();
+        }
+        toast({
+          title: "Booking Confirmed!",
+          description: "Your booking has been submitted successfully.",
+          duration: 5000,
+          variant: "default",
         });
-        console.log("Backup toast created:", backupToast);
-      }, 500);
+        setIsSubmitted(true);
 
-      // Also show alert as absolute fallback
-      setTimeout(() => {
-        alert("🎉 Booking Confirmed! Your ride has been booked successfully.");
-      }, 1000);
-      
-      // Scroll to top smoothly
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      
-      // Reset form after successful booking
-      setTimeout(() => {
-        console.log("Resetting form"); // Debug log
-        resetForm();
-        setAcceptTerms(false); // Reset terms checkbox
-      }, 1000);
-      
+        // Also show a simple success toast as backup
+        setTimeout(() => {
+          const backupToast = toast({
+            title: "Success!",
+            description: "Booking completed successfully!",
+            duration: 3000,
+          });
+          console.log("Backup toast created:", backupToast);
+        }, 500);
+
+
+        // Optional fallback alert
+        setTimeout(() => {
+          alert("🎉 Booking Confirmed! Your ride has been booked successfully.");
+        }, 1000);
+
+        // Scroll smoothly to top
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+
+        // Reset form
+        setTimeout(() => {
+          console.log("Resetting form");
+          resetForm();
+        }, 1000);
+      } else {
+        if (processing) processing.dismiss();
+        toast({
+          title: "Submission Failed",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
+        console.error("Web3Forms error:", result);
+      }
     } catch (error) {
-      console.error("Booking error:", error); // Debug log
+      console.error("Error submitting form:", error);
+      if (processing) processing.dismiss();
       toast({
         title: "Booking Failed",
         description: "Something went wrong. Please try again.",

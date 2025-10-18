@@ -9,10 +9,97 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Switch } from "@/components/ui/switch";
 import { ArrowRight, ArrowLeft, CheckCircle, Building2, MapPin, Calendar, Car, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 const CorporateBookingForm = () => {
   const [bookingType, setBookingType] = useState("corporate"); // "corporate" or "individual"
   const [step, setStep] = useState(1);
+  const [location, setLocation] = useState("");
+  const [isGettingLocation, setIsGettingLocation] = useState(false);
+  const [error, setError] = useState("");
+
+  const getCurrentLocation = () => {
+    console.log("Fetching current location...");
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    setIsGettingLocation(true);
+    setError("");
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        console.log("Location obtained:", latitude, longitude);
+        reverseGeocode(latitude, longitude);
+      },
+      (err) => {
+        console.error("Error getting location:", err);
+        let message = "Unable to get your current location.";
+
+        switch (err.code) {
+          case err.PERMISSION_DENIED:
+            message =
+              "Location access denied. Please allow location permission.";
+            break;
+          case err.POSITION_UNAVAILABLE:
+            message = "Location information unavailable.";
+            break;
+          case err.TIMEOUT:
+            message = "Location request timed out.";
+            break;
+          default:
+            message = "An unknown error occurred.";
+        }
+
+        setIsGettingLocation(false);
+        setError(message);
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  };
+
+  const reverseGeocode = async (latitude, longitude) => {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`
+      );
+
+      if (!response.ok) throw new Error("Failed to get address");
+
+      const data = await response.json();
+      const addr = data.address || {};
+
+      // Try to get all possible address components
+      const road = addr.road || addr.residential || addr.pedestrian || "";
+      const neighbourhood = addr.neighbourhood || addr.suburb || "";
+      const city = addr.city || addr.town || addr.village || "";
+      const state = addr.state || "";
+      const country = addr.country || "";
+      const postcode = addr.postcode || "";
+
+      // Build the location string dynamically
+      const formattedAddress = [road, neighbourhood, city, state, postcode, country]
+        .filter(Boolean)
+        .join(", ");
+
+      console.log("Address:", formattedAddress);
+      setLocation(formattedAddress);
+      setFormData(prev => ({
+        ...prev,
+        pickupLocation: formattedAddress
+      }));
+      setError("");
+
+
+
+    } catch (error) {
+      console.error("Error in reverse geocoding:", error);
+      setError("Unable to get address. Please enter manually.");
+    } finally {
+      setIsGettingLocation(false);
+    }
+  };
+
   const [formData, setFormData] = useState({
     // Corporate fields
     companyName: "",
@@ -150,7 +237,7 @@ const CorporateBookingForm = () => {
     }
 
     const formDataToSend = {
-      access_key: "api-key",
+      access_key: "9d3e664b-fa9e-45f1-9d58-8067293b844f",
       subject: `New ${bookingType === "corporate" ? "Corporate" : "Individual"} Booking Request`,
       from_name: bookingType === "corporate" ? formData.companyName : formData.name,
       email: formData.email,
@@ -233,13 +320,12 @@ const CorporateBookingForm = () => {
   };
 
   const StepIcon = ({ number, currentStep }) => (
-    <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 ${
-      number < currentStep 
-        ? "bg-green-500 border-green-500 text-white" 
-        : number === currentStep
+    <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 ${number < currentStep
+      ? "bg-green-500 border-green-500 text-white"
+      : number === currentStep
         ? "bg-blue-600 border-blue-600 text-white"
         : "border-gray-300 text-gray-500"
-    }`}>
+      }`}>
       {number < currentStep ? <CheckCircle className="w-4 h-4" /> : number}
     </div>
   );
@@ -284,25 +370,21 @@ const CorporateBookingForm = () => {
               <div key={number} className="flex flex-col items-center flex-1">
                 <div className="flex items-center w-full">
                   {number > 1 && (
-                    <div className={`flex-1 h-1 transition-all duration-500 ${
-                      number <= step ? "bg-blue-600" : "bg-gray-200"
-                    }`} />
+                    <div className={`flex-1 h-1 transition-all duration-500 ${number <= step ? "bg-blue-600" : "bg-gray-200"
+                      }`} />
                   )}
                   <div className="flex flex-col items-center relative">
                     <StepIcon number={number} currentStep={step} />
-                    <Icon className={`w-4 h-4 mt-2 transition-colors duration-300 ${
-                      number <= step ? "text-blue-600" : "text-gray-400"
-                    }`} />
+                    <Icon className={`w-4 h-4 mt-2 transition-colors duration-300 ${number <= step ? "text-blue-600" : "text-gray-400"
+                      }`} />
                   </div>
                   {number < 3 && (
-                    <div className={`flex-1 h-1 transition-all duration-500 ${
-                      number < step ? "bg-blue-600" : "bg-gray-200"
-                    }`} />
+                    <div className={`flex-1 h-1 transition-all duration-500 ${number < step ? "bg-blue-600" : "bg-gray-200"
+                      }`} />
                   )}
                 </div>
-                <span className={`text-xs font-medium mt-2 transition-colors duration-300 ${
-                  number <= step ? "text-blue-600" : "text-gray-500"
-                }`}>
+                <span className={`text-xs font-medium mt-2 transition-colors duration-300 ${number <= step ? "text-blue-600" : "text-gray-500"
+                  }`}>
                   {label}
                 </span>
               </div>
@@ -470,14 +552,20 @@ const CorporateBookingForm = () => {
                         <Label htmlFor="pickupLocation" className="text-sm font-semibold">
                           Pickup Location *
                         </Label>
-                        <Input
-                          id="pickupLocation"
-                          name="pickupLocation"
-                          value={formData.pickupLocation}
-                          onChange={handleInputChange}
-                          placeholder="Enter pickup location"
-                          className={errors.pickupLocation ? "border-red-500" : ""}
-                        />
+                        <div className="relative">
+                          <Input
+                            id="pickupLocation"
+                            name="pickupLocation"
+                            value={formData.pickupLocation}
+                            onChange={handleInputChange}
+                            placeholder="Enter pickup location"
+                            className={errors.pickupLocation ? "border-red-500" : ""}
+                          />
+                          <MapPin
+                            className="w-5 h-5 text-blue-800 absolute right-3 top-3 cursor-pointer hover:scale-110 transition-transform"
+                            onClick={getCurrentLocation}
+                          />
+                        </div>
                         {errors.pickupLocation && (
                           <p className="text-red-500 text-xs">{errors.pickupLocation}</p>
                         )}
@@ -858,14 +946,20 @@ const CorporateBookingForm = () => {
                     <Label htmlFor="pickupLocation" className="text-sm font-semibold">
                       Pickup Location *
                     </Label>
-                    <Input
-                      id="pickupLocation"
-                      name="pickupLocation"
-                      value={formData.pickupLocation}
-                      onChange={handleInputChange}
-                      placeholder="Enter pickup location"
-                      className={errors.pickupLocation ? "border-red-500" : ""}
-                    />
+                    <div className="relative">
+                      <Input
+                        id="pickupLocation"
+                        name="pickupLocation"
+                        value={formData.pickupLocation}
+                        onChange={handleInputChange}
+                        placeholder="Enter pickup location"
+                        className={errors.pickupLocation ? "border-red-500" : ""}
+                      />
+                      <MapPin
+                        className="w-5 h-5 text-blue-800 absolute right-3 top-3 cursor-pointer hover:scale-110 transition-transform"
+                        onClick={getCurrentLocation}
+                      />
+                    </div>
                     {errors.pickupLocation && (
                       <p className="text-red-500 text-xs">{errors.pickupLocation}</p>
                     )}
