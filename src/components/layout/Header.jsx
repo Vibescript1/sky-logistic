@@ -43,7 +43,7 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-3 group relative">
             <motion.div whileHover={{ scale: 1.05 }} className="relative">
               <img
-                src="/sky-logo.png" 
+                src="/sky-logo.png"
                 alt="Sky Logistic Logo"
                 className="h-8 sm:h-10 md:h-12 w-auto object-contain"
               />
