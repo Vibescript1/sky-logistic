@@ -13,9 +13,9 @@ import tempoImage from "@/assets/tempo.jpg";
 const VehicleDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  
-  const vehicle = fleetData.find((v) => v.id === Number(id));
 
+  const vehicle = fleetData.find((v) => v.id === Number(id));
+  console.log(vehicle, "vehicle details");
   const imageMap = {
     sedan: sedanImage,
     suv: suvImage,
@@ -43,7 +43,7 @@ const VehicleDetails = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <Button
@@ -64,7 +64,7 @@ const VehicleDetails = () => {
             >
               <div className="relative rounded-2xl overflow-hidden">
                 <img
-                  src={imageMap[vehicle.image] || sedanImage}
+                  src={vehicle?.image || sedanImage}
                   alt={vehicle.name}
                   className="w-full h-[500px] object-cover"
                 />
@@ -111,16 +111,19 @@ const VehicleDetails = () => {
                   Description
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Experience premium comfort and professional service with our {vehicle.name}. 
-                  Perfect for {vehicle.seating} passengers, this vehicle combines luxury with 
-                  reliability. Ideal for corporate travel, airport transfers, and business meetings.
+                  Experience premium comfort and professional service with our{" "}
+                  {vehicle.name}. Perfect for {vehicle.seating} passengers, this
+                  vehicle combines luxury with reliability. Ideal for corporate
+                  travel, airport transfers, and business meetings.
                 </p>
               </div>
 
               {/* Price & Booking */}
               <div className="glass-card-light rounded-2xl p-6">
                 <Button
-                  onClick={() => navigate(`/corporate-booking`)}
+                  onClick={() =>
+                    navigate(`/individual-booking?vehicle=${vehicle.id}`)
+                  }
                   size="lg"
                   className="w-full bg-[#56B24C] hover:bg-green-700 text-white transition"
                 >
