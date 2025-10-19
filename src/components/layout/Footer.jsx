@@ -27,9 +27,9 @@ const Footer = () => {
               <Link to="/" className="flex items-center gap-3 group relative">
                 <motion.div whileHover={{ scale: 1.05 }} className="relative">
                   <img
-                    src="/sky-logo.png"
+                    src="/sky-logo-white.png"
                     alt="Sky Logistic Logo"
-                    className="h-12 sm:h-10 md:h-16 w-auto object-contain"
+                    className="h-12 sm:h-16 md:h-[60px] w-auto object-contain"
                   />
                 </motion.div>
               </Link>

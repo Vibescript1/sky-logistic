@@ -13,7 +13,7 @@ const FleetShowcase = () => {
       rating: 4.9,
       price: 2500,
       description: "Perfect for corporate meetings and business travel",
-      features: ["Professional Driver", "Wi-Fi", "AC", "GPS Tracking"],
+      features: ["Professional Driver", "AC", "GPS Tracking"] /* "Wi-Fi" */,
       image:
         "https://media.istockphoto.com/id/170107445/photo/white-smart-car.jpg?s=612x612&w=0&k=20&c=PRHWIYHunkjEy0K8CusBaNc-KHgF_s0sXxNHMmCuRwA=" /* /pexels-alexgtacar-745150-1592384.jpg */,
       available: true,
@@ -110,7 +110,6 @@ const FleetShowcase = () => {
                     {vehicle.rating}
                   </span>
                 </div>
-
               </div>
 
               {/* Content */}
@@ -129,7 +128,7 @@ const FleetShowcase = () => {
                 </p>
 
                 {/* Features */}
-                <div className="flex items-center gap-4 text-sm text-slate-500 mb-4">
+                <div className="flex items-center gap-5 text-sm text-slate-500 mb-4">
                   <div className="flex items-center gap-1">
                     <Users className="w-4 h-4" />
                     <span>{vehicle.seating} seats</span>
@@ -138,10 +137,10 @@ const FleetShowcase = () => {
                     <Shield className="w-4 h-4" />
                     <span>Insured</span>
                   </div>
-                  <div className="flex items-center gap-1">
+                  {/* <div className="flex items-center gap-1">
                     <Wifi className="w-4 h-4" />
                     <span>Wi-Fi</span>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Feature Tags */}
