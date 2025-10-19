@@ -12,7 +12,7 @@ export const fleetData = [
     features: [
       "Premium Comfort",
       "Professional Driver",
-      "Wi-Fi",
+      // "Wi-Fi",
       "Bottled Water",
       "AC",
       "GPS Tracking",
@@ -35,7 +35,7 @@ export const fleetData = [
       "Extra Luggage",
       "Premium Sound",
       "Climate Control",
-      "Wi-Fi",
+      // "Wi-Fi",
       "Sunroof",
     ],
     image:
@@ -326,11 +326,11 @@ export const faqData = [
         answer:
           "Yes, we offer outstation services with experienced drivers. Additional charges apply for tolls, driver accommodation, and return trip.",
       },
-      {
-        question: "Is Wi-Fi available in all vehicles?",
-        answer:
-          "Wi-Fi is available in our Business and Executive category vehicles. Please specify this requirement while booking.",
-      },
+      // {
+      //   question: "Is Wi-Fi available in all vehicles?",
+      //   answer:
+      //     "Wi-Fi is available in our Business and Executive category vehicles. Please specify this requirement while booking.",
+      // },
     ],
   },
 ];
