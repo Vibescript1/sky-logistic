@@ -35,8 +35,8 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-[#7A7F84] text-md mb-4">
-              Premium corporate transportation solutions for modern businesses.
-              Reliable, professional, and luxurious.
+            Premium Car Rentals,Experienced
+                  Driver and seamless booking experience.
             </p>
             <div className="flex gap-3">
               {[
