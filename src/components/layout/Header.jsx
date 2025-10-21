@@ -153,7 +153,7 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <div className="flex flex-col gap-4 pt-6 mt-6 border-t border-gray-200">
+              {/* <div className="flex flex-col gap-4 pt-6 mt-6 border-t border-gray-200">
                 <Link
                   to="/corporate-booking"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -173,22 +173,7 @@ const Header = () => {
                     </Button>
                   </motion.div>
                 </Link>
-                {/* <Link
-                  to="/dashboard"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.02, x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Button className="w-full justify-center py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold rounded-xl">
-                      <User className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" />
-                      <span className="font-medium">Dashboard</span>
-                    </Button>
-                  </motion.div>
-                </Link> */}
-              </div>
+              </div> */}
             </nav>
           </motion.div>
         )}
