@@ -11,10 +11,20 @@ const heroVideo =
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(() => {
     const firstLoad = sessionStorage.getItem("hasLoaded");
     return !firstLoad;
   });
+
+  // Message rotation effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((current) => (current + 1) % 3);
+    }, 5000); // Change message every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [contentLoaded, setContentLoaded] = useState(false);
 
@@ -191,15 +201,35 @@ const HeroSection = () => {
                   {/* text-accent, bg-gradient-to-r from-[#F09136] to-[#FAD889] inline-block text-transparent bg-clip-text */}
                 </motion.h1>
 
-                <motion.p
-                  className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-2xl"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                {/* Sliding Messages */}
+                <motion.div
+                  className="relative h-24 sm:h-20 overflow-hidden max-w-2xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  Premium Car Rentals,Experienced
-                  Driver and seamless booking experience.
-                </motion.p>
+                  <AnimatePresence mode="wait">
+                    {(() => {
+                      const messages = [
+                        "Your One-Stop Corporate Cab Partner",
+                        "Backed by 20 years of proven experience in corporate transportation solutions.",
+                        "A compliance-focused, POSH-trained team ensuring safety, respect, and reliability in every ride."
+                      ];
+                      return (
+                        <motion.p
+                          key={currentMessageIndex}
+                          className="text-lg sm:text-xl md:text-2xl text-white/90 absolute inset-x-0"
+                          initial={{ opacity: 0, y: 40 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -40 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          {messages[currentMessageIndex]}
+                        </motion.p>
+                      );
+                    })()}
+                  </AnimatePresence>
+                </motion.div>
 
                 <motion.div
                   className="flex flex-col sm:flex-row gap-4 pt-4"
