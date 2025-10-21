@@ -42,7 +42,7 @@ const BookingFlowSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <motion.div
+          {/* <motion.div
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -50,7 +50,7 @@ const BookingFlowSection = () => {
           >
             <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
             Effortless Booking Experience
-          </motion.div>
+          </motion.div> */}
           
           <h2 className="font-display font-bold text-4xl md:text-6xl text-slate-900 dark:text-white mb-6">
             Effortless <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Booking Experience</span>

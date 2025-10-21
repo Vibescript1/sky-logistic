@@ -19,8 +19,8 @@ const services = [
   },
   {
     Icon: Shield,
-    title: "Safety First",
-    description: "Verified drivers, real-time tracking, and 24/7 support for complete peace of mind.",
+    title: "Compliance & Care",
+    description: "Full compliance through rigorous driver training programs that cover safety procedures, and POSH awareness - creating a safe and respectful travel experience for every passenger.",
   },
 ];
 

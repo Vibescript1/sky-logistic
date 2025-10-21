@@ -187,7 +187,7 @@ const HeroSection = () => {
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   Corporate Cab Solutions for{" "}
-                  <span className="text-[#F09136]">Modern Businesses</span>{" "}
+                  <span className="text-[#F09136]">Your Businesses</span>{" "}
                   {/* text-accent, bg-gradient-to-r from-[#F09136] to-[#FAD889] inline-block text-transparent bg-clip-text */}
                 </motion.h1>
 
@@ -197,8 +197,8 @@ const HeroSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  Premium fleet, professional drivers, seamless booking
-                  experience. Elevate your corporate transportation.
+                  Premium Car Rentals,Experienced
+                  Driver and seamless booking experience.
                 </motion.p>
 
                 <motion.div
