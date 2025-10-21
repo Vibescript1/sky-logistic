@@ -57,7 +57,7 @@ export const fleetData = [
       "Champagne",
       "Massage Seats",
       "Privacy Glass",
-      "Entertainment",
+  
     ],
     image:
       "https://www.carbike360.ae/_next/image?url=https%3A%2F%2Fcarbike360-ae.s3.me-central-1.amazonaws.com%2Fmedium_BMW_7_Series_35446b286f.jpg&w=3840&q=75" /* /pexels-pixabay-164634.jpg */,

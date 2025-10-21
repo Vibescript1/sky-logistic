@@ -184,7 +184,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Enhanced Trust Indicators */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -214,7 +214,7 @@ const TestimonialsSection = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -237,22 +237,22 @@ const HeroSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                  <Link to="/corporate-booking">
+                  <a href="tel:+919121261234">
                     <Button
                       size="lg"
                       className="bg-white text-primary hover:bg-white/90 p-6 glow-effect group"
                     >
-                      Book for Company
+                      Call Now
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
-                  </Link>
-                  <Link to="/corporate-booking">
+                  </a>
+                  <Link to="/contact">
                     <Button
                       size="lg"
                       variant="outline"
                       className="bg-white/20 text-white border-white/30 hover:bg-white/10 backdrop-blur-md mb-4 sm:mb-0"
                     >
-                      Book as Individual
+                      Contact Us
                     </Button>
                   </Link>
                 </motion.div>

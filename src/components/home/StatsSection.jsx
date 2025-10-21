@@ -72,7 +72,7 @@ const StatsSection = () => {
     },
     { 
       label: "Fleet Vehicles", 
-      value: 200, 
+      value: 700, 
       suffix: "+", 
       icon: Car 
     },
@@ -90,7 +90,7 @@ const StatsSection = () => {
     },
     { 
       label: "Professional Drivers", 
-      value: 350, 
+      value: 1400, 
       suffix: "+", 
       icon: Shield 
     },
@@ -161,7 +161,7 @@ const StatsSection = () => {
             Driving <span className="text-yellow-300">Excellence</span> in Corporate Transportation
           </h2>
           <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            For over a decade, we've been the preferred choice for businesses seeking reliable, 
+            For over two decade, we've been the preferred choice for businesses seeking reliable, 
             premium transportation solutions across India
           </p>
         </motion.div>

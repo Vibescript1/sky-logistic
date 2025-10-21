@@ -10,32 +10,39 @@ const About = () => {
   const values = [
     {
       Icon: Shield,
-      title: "Safety First",
-      description: "Verified drivers, well-maintained vehicles, and 24/7 monitoring for your peace of mind.",
+      title: "Compliance & Integrity",
+      description: "We operate with transparency, ethics, and complete adherence to regulations.",
       color: "from-blue-500 to-cyan-500",
       bgColor: "bg-blue-50"
     },
     {
-      Icon: Award,
-      title: "Excellence",
-      description: "Premium service quality with attention to every detail of your journey.",
-      color: "from-amber-500 to-orange-500",
-      bgColor: "bg-amber-50"
-    },
-    {
-      Icon: Users,
-      title: "Customer Focus",
-      description: "Dedicated support team ensuring seamless transportation experience.",
+      Icon: Shield,
+      title: "Safety & Reliability",
+      description: "Ensuring every journey is safe, timely, and dependable.",
       color: "from-green-500 to-emerald-500",
       bgColor: "bg-green-50"
     },
     {
-      Icon: Clock,
-      title: "Reliability",
-      description: "Punctual service with real-time tracking and transparent communication.",
+      Icon: Users,
+      title: "Customer First",
+      description: "Delivering comfort, care, and quality service excellence.",
+      color: "from-amber-500 to-orange-500",
+      bgColor: "bg-amber-50"
+    },
+    {
+      Icon: Award,
+      title: "Team Excellence",
+      description: "A POSH-certified, well-trained team dedicated to professionalism.",
       color: "from-purple-500 to-indigo-500",
       bgColor: "bg-purple-50"
     },
+    {
+      Icon: TrendingUp,
+      title: "Innovation & Efficiency",
+      description: "Driving progress through technology-driven operations.",
+      color: "from-pink-500 to-rose-500",
+      bgColor: "bg-pink-50"
+    }
   ];
 
   const stats = [
@@ -197,12 +204,12 @@ const About = () => {
                   <h3 className="text-2xl font-bold mb-6">Why Choose Sky Logistic?</h3>
                   <div className="space-y-4">
                     {[
-                      "24/7 Dedicated Corporate Support",
-                      "GPS Tracking & Real-time Updates",
-                      "Premium, Well-Maintained Fleet",
-                      "Professional Background-Verified Drivers",
-                      "Customized Corporate Plans",
-                      "Seamless Expense Management"
+                      "POSH Certified",
+                      "GPS-Monitored Fleet",
+                      "Dedicated Account Managers",
+                      "Professional Chauffeurs",
+                      "Luxury & Comfort",
+                      "Reliability"
                     ].map((feature, index) => (
                       <motion.div
                         key={feature}
@@ -249,27 +256,26 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className={`${value.bgColor} rounded-2xl p-8 text-center group cursor-pointer transition-all duration-500 hover:shadow-2xl border border-transparent hover:border-white/50`}
+                className={`${value.bgColor} rounded-2xl p-6 text-center group cursor-pointer transition-all duration-500 hover:shadow-2xl border border-transparent hover:border-white/50 h-full flex flex-col`}
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-all duration-300`}
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mx-auto mb-4 group-hover:shadow-lg transition-all duration-300`}
                 >
                   <value.Icon className="w-10 h-10 text-white" />
                 </motion.div>
-                <h3 className="font-bold text-2xl text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
+                <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-gray-800 transition-colors">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
+                <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors mt-auto">
                   {value.description}
                 </p>
               </motion.div>
@@ -279,7 +285,7 @@ const About = () => {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/50">
+      {/* <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -319,10 +325,10 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
+      {/* <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -347,7 +353,7 @@ const About = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

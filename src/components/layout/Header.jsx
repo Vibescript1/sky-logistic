@@ -19,9 +19,8 @@ const Header = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Our Fleet", path: "/fleet" },
     { name: "About Us", path: "/about" },
-    { name: "FAQ", path: "/faq" },
+    { name: "Our Fleet", path: "/fleet" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -80,25 +79,22 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Link to="/corporate-booking">
+            <a href="tel:+919121261234">
               <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
-                <Button
-                  variant="outline"
-
-                  className="relative overflow-hidden group border-2 border-blue-200 hover:border-blue-600 transition-all duration-500 font-semibold px-6 py-3 rounded-xl shadow-md hover:shadow-lg h-12"
-                >
-                  <span className="relative z-10 text-gray-700 group-hover:text-white transition-all duration-300 font-medium">
-                    Book Now
+                <div className="relative overflow-hidden group border-2 border-blue-200 hover:border-blue-400 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] font-semibold px-6 py-3 rounded-xl shadow-md hover:shadow-lg h-12 flex items-center">
+                  <Phone className="w-5 h-5 mr-2 text-blue-600 group-hover:text-white transition-all duration-500 ease-in-out z-10" />
+                  <span className="relative z-10 text-gray-700 group-hover:text-white transition-all duration-500 ease-in-out font-medium">
+                    +91 91212 61234
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                  <div className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                </Button>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] origin-left" />
+                  <div className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-700 ease-in-out" />
+                </div>
               </motion.div>
-            </Link>
+            </a>
             {/* <Link to="/dashboard">
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}

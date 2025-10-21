@@ -11,7 +11,6 @@ import VehicleDetails from "./pages/VehicleDetails";
 import CorporateBooking from "./pages/CorporateBooking";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import FAQ from "./pages/FAQ";
 import Dashboard from "./pages/Dashboard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
@@ -33,7 +32,6 @@ const App = () => (
           <Route path="/corporate-booking" element={<CorporateBooking />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/dashboard" element={<Dashboard />} />

@@ -138,57 +138,7 @@ const BookingFlowSection = () => {
         </div>
 
         {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-8"
-        >
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ scale: 0.95 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white dark:bg-slate-800 rounded-3xl p-12 shadow-2xl shadow-black/10 border border-slate-200 dark:border-slate-700"
-            >
-              <h3 className="font-bold text-3xl md:text-4xl text-slate-900 dark:text-white mb-6">
-                Ready to Book Your Corporate Transportation?
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-                Join hundreds of companies who trust us with their transportation needs. 
-                Get started today and experience seamless corporate travel management.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/corporate-booking">
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-6 text-lg font-semibold group shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300"
-                  >
-                    Start Corporate Booking
-                    <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <Link to="/individual-booking">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 px-10 py-6 text-lg font-medium transition-all duration-300"
-                  >
-                    Book as Individual
-                  </Button>
-                </Link>
-              </div>
-              
-              <p className="text-sm text-slate-500 dark:text-slate-500 mt-6">
-                No credit card required • Get instant confirmation • 24/7 customer support
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
-
       <style jsx>{`
         @keyframes connectionLine {
           0% { transform: scaleX(0); transform-origin: left; }
