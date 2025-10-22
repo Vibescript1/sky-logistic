@@ -63,7 +63,7 @@ const TestimonialsSection = () => {
           </motion.div>
 
           <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6 leading-tight">
-            Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">Leading Businesses</span>
+            Trusted by <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Leading Businesses</span>
           </h2>
           <p className="text-slate-600 text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
             Discover why Fortune 500 companies and growing startups choose our premium corporate transportation solutions

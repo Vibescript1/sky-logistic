@@ -212,7 +212,7 @@ const StatsSection = () => {
             transition={{ duration: 2, repeat: Infinity }}
           >
             <Shield className="w-4 h-4" />
-            <span>ISO 9001:2015 Certified • 24/7 Customer Support</span>
+            <span>POSH Certified Certified • 24/7 Customer Support</span>
           </motion.div>
         </motion.div>
       </div>

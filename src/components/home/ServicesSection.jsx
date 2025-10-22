@@ -61,7 +61,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section className="pt-12 pb-8 bg-gradient-to-b from-slate-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,10 +70,10 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-slate-900 mb-4">
-            Why Choose <span className="text-blue-600">Our Services</span>
+          <h2 className="font-display font-bold text-4xl md:text-6xl text-slate-900 mb-6">
+            Why Choose <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Our Services</span>
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             Premium transportation solutions designed for your business needs
           </p>
         </motion.div>

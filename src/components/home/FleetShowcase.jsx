@@ -57,10 +57,10 @@ const FleetShowcase = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-slate-900 mb-4">
-            Our Premium <span className="text-blue-600">Fleet</span>
+          <h2 className="font-display font-bold text-4xl md:text-6xl text-slate-900 mb-6">
+            Our Premium <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Fleet</span>
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed">
             Experience corporate travel redefined with our meticulously
             maintained luxury vehicles and professional chauffeurs
           </p>
