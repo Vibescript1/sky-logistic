@@ -236,12 +236,12 @@ const TermsAndConditions = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                 <div>
                   <h3 className="font-semibold text-white mb-2">Legal Inquiries</h3>
-                  <p className="text-indigo-100 mb-1">booking@skylogisticshub.com</p>
+                  <p className="text-indigo-100 mb-1">bookings@skylogisticshub.com</p>
                   <p className="text-indigo-100">Phone: +91 9121261234</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-white mb-2">General Support</h3>
-                  <p className="text-indigo-100 mb-1">booking@skylogisticshub.com</p>
+                  <p className="text-indigo-100 mb-1">bookings@skylogisticshub.com</p>
                   <p className="text-indigo-100">Phone: +91 9121261234X</p>
                 </div>
               </div>

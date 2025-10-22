@@ -121,10 +121,10 @@ const Footer = () => {
               <li className="flex items-center gap-2 hover:scale-105 transition-transform">
                 <Mail className="w-4 h-4 flex-shrink-0 text-orange-400" />
                 <a
-                  href="mailto:booking@skylogisticshub.com"
+                  href="mailto:bookings@skylogisticshub.com"
                   className="hover:text-orange-400 hover:underline transition-colors"
                 >
-                  booking@skylogisticshub.com
+                  bookings@skylogisticshub.com
                 </a>
               </li>
             </ul>

@@ -147,13 +147,13 @@ const Contact = () => {
     {
       Icon: Mail,
       title: "Email Us",
-      content: "booking@skylogisticshub.com",
+      content: "bookings@skylogisticshub.com",
       description: "Quick response guaranteed",
       color: "purple",
       bgColor: "bg-purple-50",
       textColor: "text-purple-600",
       iconBg: "from-purple-500 to-indigo-500",
-      link: "mailto:booking@skylogisticshub.com"
+      link: "mailto:bookings@skylogisticshub.com"
     },
     {
       Icon: Clock,
