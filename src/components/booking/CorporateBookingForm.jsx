@@ -261,7 +261,7 @@ const CorporateBookingForm = ({ onBookingTypeChange, initialBookingType = "corpo
     }
 
     const formDataToSend = {
-      access_key: "9d3e664b-fa9e-45f1-9d58-8067293b844f",
+      access_key: import.meta.env.VITE_WEB3FORM_KEY,
       subject: `New ${
         bookingType === "corporate" ? "Corporate" : "Individual"
       } Booking Request`,

@@ -66,7 +66,8 @@ const Contact = () => {
   setIsSubmitting(true);
 
   const formDataToSend = {
-    access_key: "9d3e664b-fa9e-45f1-9d58-8067293b844f", 
+    access_key: import.meta.env.VITE_WEB3FORM_KEY,
+    subject: `New Contact Form Submission from ${formData.name}`,
     from_name: formData.name,
     email: formData.email,
     replyto: formData.email,
