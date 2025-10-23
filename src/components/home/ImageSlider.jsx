@@ -28,7 +28,7 @@ const ImageSlider = () => {
   const totalWidth = displayImages.length * itemWidth;
 
   return (
-    <section ref={ref} className="pt-0 pb-0 md:pt-2 md:pb-2 bg-gradient-to-br from-blue-50 via-white to-cyan-50 relative overflow-hidden">
+    <section ref={ref} className="mt-5 pb-0 md:pt-2 md:pb-2 bg-gradient-to-br from-blue-50 via-white to-cyan-50 relative overflow-hidden">
       
       {/* Background decorative elements */}
       <div className="absolute top-10 left-10 w-20 h-20 bg-blue-200/20 rounded-full blur-xl"></div>

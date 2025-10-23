@@ -172,7 +172,7 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-10 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
+      <section className="pt-20 pb-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -195,7 +195,8 @@ const Contact = () => {
               Contact <span className="text-amber-300">Sky Logistic</span>
             </h1>
             <p className="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
-              Get in touch with our team for premium corporate transportation solutions.
+              Experience premium corporate travel with our transportation services.
+              <br />Contact our team for custom mobility solutions.
             </p>
           </motion.div>
         </div>

@@ -7,43 +7,43 @@ import { Button } from "@/components/ui/button";
 
 const About = () => {
   const navigate = useNavigate();
-  const values = [
-    {
-      Icon: Shield,
-      title: "Compliance & Integrity",
-      description: "We operate with transparency, ethics, and complete adherence to regulations.",
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-blue-50"
-    },
-    {
-      Icon: Shield,
-      title: "Safety & Reliability",
-      description: "Ensuring every journey is safe, timely, and dependable.",
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-50"
-    },
-    {
-      Icon: Users,
-      title: "Customer First",
-      description: "Delivering comfort, care, and quality service excellence.",
-      color: "from-amber-500 to-orange-500",
-      bgColor: "bg-amber-50"
-    },
-    {
-      Icon: Award,
-      title: "Team Excellence",
-      description: "A POSH-certified, well-trained team dedicated to professionalism.",
-      color: "from-purple-500 to-indigo-500",
-      bgColor: "bg-purple-50"
-    },
-    {
-      Icon: TrendingUp,
-      title: "Innovation & Efficiency",
-      description: "Driving progress through technology-driven operations.",
-      color: "from-pink-500 to-rose-500",
-      bgColor: "bg-pink-50"
-    }
-  ];
+ const values = [
+  {
+    Icon: Shield,
+    title: "Compliance & Integrity",
+    description: "Transparent, ethical operations with full regulatory compliance.",
+    color: "from-blue-500 to-cyan-500",
+    bgColor: "bg-blue-50"
+  },
+  {
+    Icon: Shield,
+    title: "Safety & Reliability",
+    description: "Safe, dependable travel with on-time service for all.",
+    color: "from-green-500 to-emerald-500",
+    bgColor: "bg-green-50"
+  },
+  {
+    Icon: Users,
+    title: "Customer First",
+    description: "Exceptional service focused on comfort and care for every client.",
+    color: "from-amber-500 to-orange-500",
+    bgColor: "bg-amber-50"
+  },
+  {
+    Icon: Award,
+    title: "Team Excellence",
+    description: "POSH-certified professionals delivering top-tier service.",
+    color: "from-purple-500 to-indigo-500",
+    bgColor: "bg-purple-50"
+  },
+  {
+    Icon: TrendingUp,
+    title: "Innovation & Efficiency",
+    description: "Advanced tech solutions for seamless operations.",
+    color: "from-pink-500 to-rose-500",
+    bgColor: "bg-pink-50"
+  }
+];
 
   const stats = [
     { number: "500+", label: "Companies Served", icon: Users },
@@ -78,7 +78,7 @@ const About = () => {
       <Header />
       
       {/* Enhanced Hero Section */}
-      <section className="pt-20 pb-10 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
+      <section className="pt-20 pb-14 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>

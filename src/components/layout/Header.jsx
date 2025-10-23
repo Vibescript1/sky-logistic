@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, User } from "lucide-react";
+import { Menu, X, Phone, User, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
@@ -21,7 +21,8 @@ const Header = () => {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Our Fleet", path: "/fleet" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Legal & Compliance", path: "/legal-compliance" },
   ];
 
   return (
@@ -49,7 +50,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1 ml-6">
             {navLinks.map((link) => (
               <Link key={link.path} to={link.path} className="relative group">
                 <div
@@ -79,15 +80,32 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
+            {/* Social Media Icons */}
+            <div className="flex items-center gap-2 mr-1">
+              {[
+                { icon: Facebook, href: "#" },
+                { icon: Twitter, href: "#" },
+                { icon: Linkedin, href: "#" },
+                { icon: Instagram, href: "#" },
+              ].map(({ icon: Icon, href }, index) => (
+                <a
+                  key={index}
+                  href={href}
+                  className="p-2 rounded-xl bg-white shadow-sm hover:shadow-md border border-gray-200 hover:border-blue-200 hover:bg-blue-50 hover:scale-105 transition-all duration-200"
+                >
+                  <Icon className="w-4 h-4 text-gray-600 hover:text-blue-600" />
+                </a>
+              ))}
+            </div>
             <a href="tel:+919121261234">
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.99 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
-                <div className="relative overflow-hidden group border-2 border-blue-200 hover:border-blue-400 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] font-semibold px-6 py-3 rounded-xl shadow-md hover:shadow-lg h-12 flex items-center">
-                  <Phone className="w-5 h-5 mr-2 text-blue-600 group-hover:text-white transition-all duration-500 ease-in-out z-10" />
-                  <span className="relative z-10 text-gray-700 group-hover:text-white transition-all duration-500 ease-in-out font-medium">
+                <div className="relative overflow-hidden group border-2 border-blue-200 hover:border-blue-400 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] font-semibold px-2 py-2 rounded-xl shadow-md hover:shadow-lg h-10 flex items-center">
+                  <Phone className="w-4 h-4 mr-1.5 text-blue-600 group-hover:text-white transition-all duration-500 ease-in-out z-10" />
+                  <span className="relative z-10 text-sm text-gray-700 group-hover:text-white transition-all duration-500 ease-in-out font-medium">
                     +91 91212 61234
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] origin-left" />

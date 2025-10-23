@@ -151,9 +151,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-[#7A7F84]/30 mt-8 pt-6 text-center text-sm text-[#e0e0e0]/80">
-          <p>
-            &copy; {new Date().getFullYear()} Sky Logistics. All rights
-            reserved.
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Sky Logistics Hub Pvt. Ltd. | CIN: U63031TG2019PTC131839 | GSTIN: 36ABBCS8643L1ZU
+            <br />
+            <span className="text-xs text-gray-400">(All vehicle images are for representational purposes only. Information shared is used solely for service communication)</span>
           </p>
         </div>
       </div>
