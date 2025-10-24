@@ -83,7 +83,7 @@ const Header = () => {
             {/* Social Media Icons */}
             <div className="flex items-center gap-2 mr-1">
               {[
-                { icon: Linkedin, href: "#" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/sky-logistics-hub" },
                 { icon: Instagram, href: "https://www.instagram.com/sky_logisticshub/" },
               ].map(({ icon: Icon, href }, index) => (
                 <a
