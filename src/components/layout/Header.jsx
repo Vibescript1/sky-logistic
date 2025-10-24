@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, User, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Menu, X, Phone, User, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
@@ -83,10 +83,8 @@ const Header = () => {
             {/* Social Media Icons */}
             <div className="flex items-center gap-2 mr-1">
               {[
-                { icon: Facebook, href: "#" },
-                { icon: Twitter, href: "#" },
                 { icon: Linkedin, href: "#" },
-                { icon: Instagram, href: "#" },
+                { icon: Instagram, href: "https://www.instagram.com/sky_logisticshub/" },
               ].map(({ icon: Icon, href }, index) => (
                 <a
                   key={index}

@@ -5,8 +5,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Facebook,
-  Twitter,
   Linkedin,
   Instagram,
 } from "lucide-react";
@@ -40,10 +38,8 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: Facebook, href: "#" },
-                { icon: Twitter, href: "#" },
                 { icon: Linkedin, href: "#" },
-                { icon: Instagram, href: "#" },
+                { icon: Instagram, href: "https://www.instagram.com/sky_logisticshub/" },
               ].map(({ icon: Icon, href }, index) => (
                 <a
                   key={index}
@@ -83,7 +79,6 @@ const Footer = () => {
             <h3 className="font-semibold text-orange-400 mb-4">Services</h3>
             <ul className="space-y-2 text-md font-semibold">
               {[
-                { name: "Book a Ride", to: "/corporate-booking" },
                 { name: "Fleet Management", to: "/fleet" },
               ].map((link) => (
                 <li key={link.name}>

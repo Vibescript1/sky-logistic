@@ -25,7 +25,7 @@ const About = () => {
   {
     Icon: Users,
     title: "Customer First",
-    description: "Exceptional service focused on comfort and care for every client.",
+    description: "Exceptional service focused on comfort  for every client.",
     color: "from-amber-500 to-orange-500",
     bgColor: "bg-amber-50"
   },
@@ -77,10 +77,19 @@ const About = () => {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      {/* Enhanced Hero Section */}
-      <section className="pt-20 pb-14 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute top-0 left-0 w-full h-full">
+      {/* Enhanced Hero Section with Background Image */}
+      <section className="pt-20 pb-14 relative overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80"
+            alt="Executive fleet vehicles"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div className="absolute top-0 left-0 w-full h-full z-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
         </div>

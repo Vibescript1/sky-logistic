@@ -173,8 +173,19 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 pb-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
+      <section className="relative min-h-[400px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80"
+            alt="Corporate team collaboration"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
+        <div className="absolute top-0 left-0 w-full h-full z-0">
+          <div className="absolute top-24 left-12 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-16 right-16 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

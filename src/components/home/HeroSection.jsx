@@ -211,28 +211,29 @@ const HeroSection = () => {
                   <AnimatePresence mode="wait">
                     {(() => {
                       const messages = [
-                        "Your One-Stop Corporate Cab Partner",
+                        `Your One-Stop Corporate Cab Partner,Premium Car Rentals, Airport Transfers, or Event Mobility - You call it, We do it.`,
                         "Backed by 20 years of proven experience in corporate transportation solutions.",
                         "A compliance-focused, POSH-trained team ensuring safety, respect, and reliability in every ride."
                       ];
                       return (
-                        <motion.p
+                        <motion.div
                           key={currentMessageIndex}
                           className="text-lg sm:text-xl md:text-2xl text-white/90 absolute inset-x-0"
                           initial={{ opacity: 0, y: 40 }}
                           animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -40 }}
+                          exit={{ opacity: 0, y: -50 }}
                           transition={{ duration: 0.5 }}
-                        >
-                          {messages[currentMessageIndex]}
-                        </motion.p>
+                          dangerouslySetInnerHTML={{
+                            __html: messages[currentMessageIndex].replace(/\n/g, '<br />')
+                          }}
+                        />
                       );
                     })()}
                   </AnimatePresence>
                 </motion.div>
 
                 <motion.div
-                  className="flex flex-col sm:flex-row gap-4 pt-4"
+                  className="flex flex-col sm:flex-row gap-4 pt-3"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
