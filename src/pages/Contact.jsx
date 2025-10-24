@@ -204,7 +204,7 @@ const Contact = () => {
             </motion.div>
 
             <h1 className="font-bold text-6xl md:text-7xl text-white mb-4 leading-tight">
-              Contact <span className="text-amber-300">Sky Logistic</span>
+              Contact <span className="text-amber-300">Us</span>
             </h1>
             <p className="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
               Experience premium corporate travel with our transportation services.
