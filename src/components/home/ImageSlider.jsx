@@ -7,17 +7,17 @@ const ImageSlider = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const images = [
-    "/images/Amnet digital.jpeg",
+    "/images/Amnet_digital_.png",
     "/images/Axelon-Logo.svg",
-    "/images/Blaze.jpeg",
-    "/images/FT.jpeg",
-    "/images/GUS education.jpeg",
-    "/images/Grid Dynami.png",
-    "/images/Micron.png",
-    "/images/Persistent.png",
-    "/images/Qualitest.jpeg",
-    "/images/Synechron.png",
-    "/images/WNS.jpeg"
+    "/images/Blaze.png",
+    "/images/FT.png",
+    "/images/GUS_education_.png",
+    "/images/Grid_Dynami__.png",
+    "/images/Micron__.png",
+    "/images/Persistent__.png",
+    "/images/Qualitest__.png",
+    "/images/Synechron_.png",
+    "/images/WNS_.png"
   ];
 
   // Create 3 sets for a more seamless loop
@@ -79,7 +79,7 @@ const ImageSlider = () => {
                 <img
                   src={image}
                   alt={`Partner ${(index % images.length) + 1}`}
-                  className="max-w-full max-h-full object-contain transition-transform duration-300 hover:scale-105"
+                  className="max-w-full max-h-full object-contain filter grayscale brightness-500 opacity-90 transition-transform duration-300 hover:scale-105"
                 />
               </motion.div>
             ))}
