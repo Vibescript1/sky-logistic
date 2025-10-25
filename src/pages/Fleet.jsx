@@ -17,6 +17,7 @@ const Fleet = () => {
     { id: "suv", name: "SUVs" },
     { id: "luxury", name: "Luxury" },
     { id: "van", name: "Vans" },
+    { id: "bus", name: "Buses" },
   ];
 
   const filteredFleet =
