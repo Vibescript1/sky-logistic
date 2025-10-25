@@ -7,7 +7,9 @@ const StatCard = ({ value, label, suffix = "", icon: Icon }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const displayValue = useTransform(count, (latest) => 
+    label === "Service Rating" ? latest.toFixed(1) : Math.round(latest).toString()
+  );
 
   useEffect(() => {
     if (isInView) {
@@ -41,7 +43,7 @@ const StatCard = ({ value, label, suffix = "", icon: Icon }) => {
       
       <div className="font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-2">
         <motion.span className="inline-block">
-          {rounded}
+          {displayValue}
         </motion.span>
         {suffix}
       </div>
