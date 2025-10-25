@@ -11,7 +11,7 @@ const WhatsAppButton = () => {
   return (
     <button
       onClick={handleWhatsAppClick}
-      className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+      className="fixed bottom-8 right-3 sm:bottom-10 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
       aria-label="Chat on WhatsApp"
     >
       <FaWhatsapp className="w-5 h-5 sm:w-7 sm:h-7 m-auto" />
