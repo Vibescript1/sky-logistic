@@ -45,7 +45,7 @@ const HeroSection = () => {
         setIsLoading(false);
         sessionStorage.setItem("hasLoaded", "true"); // ✅ prevent future loads
       }
-    }, 1200);
+    }, 700);
 
     return () => {
       clearTimeout(loadingTimer);
@@ -57,7 +57,7 @@ const HeroSection = () => {
   const handleVideoLoad = () => {
     setVideoLoaded(true);
     if (contentLoaded) {
-      setTimeout(() => setIsLoading(false), 400);
+      setTimeout(() => setIsLoading(false), 200);
       sessionStorage.setItem("hasLoaded", "true");
     }
   };
