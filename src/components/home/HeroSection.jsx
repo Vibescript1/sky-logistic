@@ -38,14 +38,18 @@ const HeroSection = () => {
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
       setContentLoaded(true);
-    }, 800);
-
-    const completeTimer = setTimeout(() => {
+      // If video is already loaded, complete loading immediately
       if (videoLoaded) {
         setIsLoading(false);
-        sessionStorage.setItem("hasLoaded", "true"); // ✅ prevent future loads
+        sessionStorage.setItem("hasLoaded", "true");
       }
-    }, 700);
+    }, 500);
+
+    // Set a maximum timeout to ensure loading completes
+    const completeTimer = setTimeout(() => {
+      setIsLoading(false);
+      sessionStorage.setItem("hasLoaded", "true");
+    }, 1500);
 
     return () => {
       clearTimeout(loadingTimer);
@@ -57,7 +61,7 @@ const HeroSection = () => {
   const handleVideoLoad = () => {
     setVideoLoaded(true);
     if (contentLoaded) {
-      setTimeout(() => setIsLoading(false), 200);
+      setIsLoading(false);
       sessionStorage.setItem("hasLoaded", "true");
     }
   };
@@ -95,7 +99,7 @@ const HeroSection = () => {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             opacity: videoLoaded ? 1 : 0,
