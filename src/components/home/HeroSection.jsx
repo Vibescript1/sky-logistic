@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { PageLoader } from "@/components/ui/page-loader";
 import { Skeleton } from "@/components/ui/skeleton";
 const heroVideo =
-  "https://res.cloudinary.com/dqvkcq4e0/video/upload/v1760681548/3063475-uhd_3840_2160_30fps_1_1_ke5lcx.mp4";
+  "https://www.pexels.com/video/from-above-footage-of-vehicular-traffic-on-a-busy-street-intersection-in-the-city-at-night-3063475/";
 // import carDriving from "../../assets/car_driving_video.mp4";
 
 const HeroSection = () => {
